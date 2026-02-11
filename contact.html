@@ -40,31 +40,35 @@
  <div class="eyebrow">Get started</div>
  <h2 class="h2" style="margin-bottom:28px">Tell us about your situation.</h2>
  <form class="form" onsubmit="handleSubmit(event)">
+ <input type="hidden" name="access_key" value="32fac876-03b1-49ac-bf25-13f1df883803" />
+ <input type="hidden" name="subject" value="New GoatSec scope call request" />
+ <input type="hidden" name="from_name" value="GoatSec Contact Form" />
+ <input type="checkbox" name="botcheck" style="display:none" />
  <div class="row">
  <div class="field">
  <label>First name</label>
- <input type="text" placeholder="Jane" required />
+ <input type="text" name="first_name" placeholder="Jane" required />
  </div>
  <div class="field">
  <label>Last name</label>
- <input type="text" placeholder="Smith" required />
+ <input type="text" name="last_name" placeholder="Smith" required />
  </div>
  </div>
  <div class="field">
  <label>Work email</label>
- <input type="email" placeholder="jane@yourcompany.com" required />
+ <input type="email" name="email" placeholder="jane@yourcompany.com" required />
  </div>
  <div class="field">
  <label>Phone (optional)</label>
- <input type="tel" placeholder="555-555-5555" />
+ <input type="tel" name="phone" placeholder="555-555-5555" />
  </div>
  <div class="field">
  <label>Your title</label>
- <input type="text" placeholder="CISO, VP Security, Head of Security, etc." />
+ <input type="text" name="title" placeholder="CISO, VP Security, Head of Security, etc." />
  </div>
  <div class="field">
  <label>Organization size</label>
- <select>
+ <select name="org_size">
  <option value="" disabled selected>Select a range</option>
  <option>Fewer than 50 employees</option>
  <option>50 to 200 employees</option>
@@ -76,7 +80,7 @@
  </div>
  <div class="field">
  <label>What's the primary challenge you're trying to solve?</label>
- <select>
+ <select name="challenge">
  <option value="" disabled selected>Choose the closest match</option>
  <option>Tool selection or vendor evaluation</option>
  <option>Integration or deployment that isn't done</option>
@@ -94,7 +98,7 @@
  </div>
  <div class="field">
  <label>Timeline pressure</label>
- <select>
+ <select name="timeline">
  <option value="" disabled selected>When does this need to move?</option>
  <option>We need to start this week or next</option>
  <option>This quarter</option>
@@ -104,7 +108,7 @@
  </div>
  <div class="field">
  <label>Any context that would help us prepare for the call</label>
- <textarea rows="4" placeholder="Industry, existing tools, team size, audit deadlines, anything relevant, the more we know before the call, the faster we can get to a useful recommendation."></textarea>
+ <textarea name="context" rows="4" placeholder="Industry, existing tools, team size, audit deadlines, anything relevant, the more we know before the call, the faster we can get to a useful recommendation."></textarea>
  </div>
  <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:4px">
  <button type="submit" class="btn btn-accent">Submit and request a scope call</button>
@@ -113,6 +117,7 @@
  <div id="success-msg" style="display:none;padding:16px 20px;background:rgba(42,138,74,.12);border:1px solid rgba(42,138,74,.25);border-radius:var(--r-md);color:#1e6b38;font-size:14px">
  Got it, we'll be in touch within one business day to confirm a time.
  </div>
+ <div id="error-msg" style="display:none;padding:16px 20px;background:rgba(229,62,62,.1);border:1px solid rgba(229,62,62,.25);border-radius:var(--r-md);color:#c53030;font-size:14px"></div>
  </form>
  </div>
 
@@ -174,12 +179,34 @@
 <script>
 function handleSubmit(e){
  e.preventDefault();
- const btn = e.target.querySelector('button[type=submit]');
- btn.textContent = 'Submitted';
+ const form = e.target;
+ const btn = form.querySelector('button[type=submit]');
+ const msg = document.getElementById('success-msg');
+ const errMsg = document.getElementById('error-msg');
+ btn.textContent = 'Sending...';
  btn.disabled = true;
- btn.style.opacity = '0.6';
- document.getElementById('success-msg').style.display = 'block';
- e.target.scrollIntoView({behavior:'smooth', block:'end'});
+ if(errMsg) errMsg.style.display = 'none';
+
+ const data = new FormData(form);
+ fetch('https://api.web3forms.com/submit', {
+  method: 'POST',
+  body: data
+ }).then(r => r.json()).then(res => {
+  if(res.success){
+   btn.textContent = 'Submitted';
+   btn.style.opacity = '0.6';
+   msg.style.display = 'block';
+   form.scrollIntoView({behavior:'smooth', block:'end'});
+  } else {
+   btn.textContent = 'Submit and request a scope call';
+   btn.disabled = false;
+   if(errMsg){ errMsg.textContent = 'Something went wrong. Try emailing us directly at goat@goatinfosec.com.'; errMsg.style.display = 'block'; }
+  }
+ }).catch(() => {
+  btn.textContent = 'Submit and request a scope call';
+  btn.disabled = false;
+  if(errMsg){ errMsg.textContent = 'Network error. Try emailing us directly at goat@goatinfosec.com.'; errMsg.style.display = 'block'; }
+ });
 }
 
 // Pre-fill from query params (e.g. ?svc=smb-law or ?sample=assessment-report)
