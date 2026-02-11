@@ -8,6 +8,25 @@
  <link rel="icon" sizes="32x32" href="favicon-32.png" />
  <link rel="icon" sizes="192x192" href="favicon-192.png" />
  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+ <style>
+  .carousel-wrap{position:relative;overflow:hidden;margin:0 -24px;padding:0 24px}
+  .carousel-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:8px 0 24px}
+  .carousel-track::-webkit-scrollbar{display:none}
+  .carousel-card{flex:0 0 380px;scroll-snap-align:start;border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden;background:var(--surface);box-shadow:var(--shadow-sm);transition:box-shadow .2s}
+  .carousel-card:hover{box-shadow:var(--shadow)}
+  @media(max-width:500px){.carousel-card{flex:0 0 85vw}}
+  .carousel-card img{width:100%;height:180px;object-fit:cover}
+  .carousel-body{padding:22px 24px 26px}
+  .carousel-nav{display:flex;gap:10px;justify-content:center;margin-top:8px}
+  .carousel-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--surface);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;transition:background .15s}
+  .carousel-btn:hover{background:var(--surface-mid)}
+  .example-tag{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--text-muted);background:var(--surface-mid);padding:3px 8px;border-radius:var(--r-sm);margin-bottom:8px}
+  .sample-form{display:flex;gap:8px;margin-top:14px;align-items:stretch}
+  .sample-form input{flex:1;padding:8px 12px;border:1px solid var(--line);border-radius:var(--r-md);font-size:13px;min-width:0}
+  .sample-form button{padding:8px 16px;border:none;background:var(--accent);color:#fff;border-radius:var(--r-md);font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;transition:opacity .15s}
+  .sample-form button:hover{opacity:.85}
+  .sample-sent{display:none;font-size:13px;color:#1e6b38;padding:8px 12px;background:rgba(42,138,74,.1);border-radius:var(--r-md);margin-top:10px}
+ </style>
 </head>
 <body>
 <div id="nav-slot"></div>
@@ -20,7 +39,7 @@
  <h1 class="h1">Outcomes, artifacts, and how we report.</h1>
  <p class="lead">Every engagement we run produces something concrete. Here's what our deliverables look like, how we structure reporting, and the artifact standards we hold ourselves to.</p>
  <div class="hero-actions">
- <a class="btn btn-accent" href="contact.html">Request sample artifacts</a>
+ <a class="btn btn-accent" href="#samples">Request sample artifacts</a>
  <a class="btn" href="packages.html">See our packages</a>
  </div>
  </div>
@@ -31,60 +50,149 @@
  </div>
 </div>
 
-<!-- CASE STUDIES -->
+<!-- EXAMPLE CASE STUDIES CAROUSEL -->
 <section class="section">
  <div class="wrap">
- <div class="eyebrow">Case studies</div>
- <h2 class="h2">Real situations, real outcomes.</h2>
- <p class="lead" style="margin-bottom:40px">We don't publish client names without permission, but we can walk through the structure of engagements we've run, the problem, the approach, the deliverables, and what changed.</p>
- <div class="g3">
- <div class="card card-photo">
- <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&q=80&fit=crop" alt="Tool evaluation and vendor comparison" />
- <div class="card-body">
- <div class="badge" style="margin-bottom:14px">Vendor Enablement</div>
- <div class="h3">Tool sprawl to a consolidated stack</div>
- <p class="body" style="margin-bottom:14px">A mid-market fintech was running seven overlapping security tools with three different SIEM instances and no coherent detection strategy. We ran a full portfolio evaluation, produced a consolidation roadmap, and managed the vendor negotiations that eliminated two contracts at renewal while improving coverage.</p>
- <div class="label" style="margin-bottom:8px">Key artifacts delivered</div>
- <ul style="display:flex;flex-direction:column;gap:4px;list-style:none">
- <li class="small">✦ Tool inventory and capability overlap analysis</li>
- <li class="small">✦ Evaluation rubric and scoring documentation</li>
- <li class="small">✦ Consolidation roadmap with estimated cost savings</li>
- <li class="small">✦ Negotiation brief for each renewal conversation</li>
- </ul>
- </div>
- </div>
+ <div class="eyebrow">Example engagements</div>
+ <h2 class="h2">What working with GoatSec looks like.</h2>
+ <p class="lead" style="margin-bottom:32px">These are representative examples of the types of engagements we run. Details are illustrative, not drawn from a specific client.</p>
 
- <div class="card card-photo">
- <img src="https://images.unsplash.com/photo-1542903660-eedba2cda473?w=600&q=80&fit=crop" alt="Application security program development" />
- <div class="card-body">
- <div class="badge" style="margin-bottom:14px">AppSec</div>
- <div class="h3">AppSec program lift for a growing startup</div>
- <p class="body" style="margin-bottom:14px">A Series B startup with 40 engineers and no formal AppSec program needed to pass a SOC 2 audit in four months. We ran an ASVS assessment, designed their secure SDLC, implemented gates in their CI/CD pipeline, and built the evidence package their auditor needed.</p>
- <div class="label" style="margin-bottom:8px">Key artifacts delivered</div>
- <ul style="display:flex;flex-direction:column;gap:4px;list-style:none">
- <li class="small">✦ ASVS gap report with sprint-ready remediation backlog</li>
- <li class="small">✦ Secure SDLC gate policy and CI/CD integration docs</li>
- <li class="small">✦ SOC 2 evidence package for security control testing</li>
- <li class="small">✦ Developer security training materials</li>
- </ul>
- </div>
- </div>
+ <div class="carousel-wrap">
+  <div class="carousel-track" id="caseCarousel">
 
- <div class="card card-photo">
- <img src="https://images.unsplash.com/photo-1606660265514-358ebbadc80d?w=600&q=80&fit=crop" alt="Incident response preparation" />
- <div class="card-body">
- <div class="badge" style="margin-bottom:14px">Incident Readiness</div>
- <div class="h3">IR readiness for a regulated healthcare company</div>
- <p class="body" style="margin-bottom:14px">A healthcare organization with HIPAA obligations had never run a tabletop exercise. We designed and facilitated a four-scenario tabletop, identified three critical gaps in their escalation path, built playbooks for each gap, and produced an after-action report with a 90-day remediation plan.</p>
- <div class="label" style="margin-bottom:8px">Key artifacts delivered</div>
- <ul style="display:flex;flex-direction:column;gap:4px;list-style:none">
- <li class="small">✦ Tabletop scenario scripts and facilitation guide</li>
- <li class="small">✦ IR playbooks for ransomware, data breach, and insider threat</li>
- <li class="small">✦ Escalation matrix and communication templates</li>
- <li class="small">✦ After-action report with 90-day remediation roadmap</li>
- </ul>
- </div>
- </div>
+   <div class="carousel-card">
+    <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&q=80&fit=crop" alt="Tool evaluation" />
+    <div class="carousel-body">
+     <span class="example-tag">Example</span>
+     <div class="badge" style="margin-bottom:10px">Vendor Enablement</div>
+     <div class="h3">Tool sprawl to a consolidated stack</div>
+     <p class="body" style="margin-bottom:14px">A mid-market fintech running seven overlapping security tools with three SIEM instances and no coherent detection strategy. Full portfolio evaluation, consolidation roadmap, vendor negotiations that eliminated two contracts at renewal.</p>
+     <div class="label" style="margin-bottom:6px">Key artifacts</div>
+     <ul style="list-style:none;display:flex;flex-direction:column;gap:3px">
+      <li class="small">✦ Tool inventory and overlap analysis</li>
+      <li class="small">✦ Consolidation roadmap with cost savings</li>
+      <li class="small">✦ Negotiation briefs per vendor</li>
+     </ul>
+    </div>
+   </div>
+
+   <div class="carousel-card">
+    <img src="https://images.unsplash.com/photo-1542903660-eedba2cda473?w=600&q=80&fit=crop" alt="AppSec program" />
+    <div class="carousel-body">
+     <span class="example-tag">Example</span>
+     <div class="badge" style="margin-bottom:10px">AppSec</div>
+     <div class="h3">AppSec program lift for a Series B startup</div>
+     <p class="body" style="margin-bottom:14px">40 engineers, no formal AppSec program, SOC 2 audit in four months. ASVS assessment, secure SDLC design, CI/CD gates, and the evidence package the auditor needed.</p>
+     <div class="label" style="margin-bottom:6px">Key artifacts</div>
+     <ul style="list-style:none;display:flex;flex-direction:column;gap:3px">
+      <li class="small">✦ ASVS gap report with sprint-ready backlog</li>
+      <li class="small">✦ Secure SDLC gate policy and CI/CD docs</li>
+      <li class="small">✦ SOC 2 evidence package</li>
+     </ul>
+    </div>
+   </div>
+
+   <div class="carousel-card">
+    <img src="https://images.unsplash.com/photo-1606660265514-358ebbadc80d?w=600&q=80&fit=crop" alt="Incident response" />
+    <div class="carousel-body">
+     <span class="example-tag">Example</span>
+     <div class="badge" style="margin-bottom:10px">Incident Readiness</div>
+     <div class="h3">IR readiness for a regulated healthcare org</div>
+     <p class="body" style="margin-bottom:14px">HIPAA-obligated organization, never run a tabletop. Four-scenario tabletop exercise, three critical gaps identified, playbooks for each, 90-day remediation roadmap.</p>
+     <div class="label" style="margin-bottom:6px">Key artifacts</div>
+     <ul style="list-style:none;display:flex;flex-direction:column;gap:3px">
+      <li class="small">✦ Tabletop scenario scripts</li>
+      <li class="small">✦ IR playbooks (ransomware, breach, insider)</li>
+      <li class="small">✦ Escalation matrix and comms templates</li>
+     </ul>
+    </div>
+   </div>
+
+   <div class="carousel-card">
+    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80&fit=crop" alt="Cloud posture" />
+    <div class="carousel-body">
+     <span class="example-tag">Example</span>
+     <div class="badge" style="margin-bottom:10px">Cloud Security</div>
+     <div class="h3">Cloud posture baseline for a multi-account AWS org</div>
+     <p class="body" style="margin-bottom:14px">12 AWS accounts, no centralized guardrails. Posture review across all accounts, IAM findings prioritized by blast radius, SCPs and guardrails implemented, ongoing drift detection configured.</p>
+     <div class="label" style="margin-bottom:6px">Key artifacts</div>
+     <ul style="list-style:none;display:flex;flex-direction:column;gap:3px">
+      <li class="small">✦ Multi-account posture report</li>
+      <li class="small">✦ IAM least-privilege remediation plan</li>
+      <li class="small">✦ SCP library and drift detection runbook</li>
+     </ul>
+    </div>
+   </div>
+
+   <div class="carousel-card">
+    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&q=80&fit=crop" alt="AI security" />
+    <div class="carousel-body">
+     <span class="example-tag">Example</span>
+     <div class="badge" style="margin-bottom:10px">AI Security</div>
+     <div class="h3">LLM risk assessment for a customer-facing chatbot</div>
+     <p class="body" style="margin-bottom:14px">Enterprise deploying a customer-facing LLM. Prompt injection testing, data leakage evaluation, model supply chain review, and governance framework aligned to ISO 42001.</p>
+     <div class="label" style="margin-bottom:6px">Key artifacts</div>
+     <ul style="list-style:none;display:flex;flex-direction:column;gap:3px">
+      <li class="small">✦ LLM-specific findings catalog</li>
+      <li class="small">✦ Prompt injection test results</li>
+      <li class="small">✦ AI governance policy framework</li>
+     </ul>
+    </div>
+   </div>
+
+   <div class="carousel-card">
+    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80&fit=crop" alt="GRC" />
+    <div class="carousel-body">
+     <span class="example-tag">Example</span>
+     <div class="badge" style="margin-bottom:10px">GRC</div>
+     <div class="h3">SOC 2 Type II readiness in 90 days</div>
+     <p class="body" style="margin-bottom:14px">SaaS company with good security practices but no documentation. Control mapping to TSC, evidence collection system design, policy package, and mock audit walkthrough before the real one.</p>
+     <div class="label" style="margin-bottom:6px">Key artifacts</div>
+     <ul style="list-style:none;display:flex;flex-direction:column;gap:3px">
+      <li class="small">✦ Control mapping matrix (TSC to controls)</li>
+      <li class="small">✦ Evidence collection procedures</li>
+      <li class="small">✦ 14-policy package, review-ready</li>
+     </ul>
+    </div>
+   </div>
+
+   <div class="carousel-card">
+    <img src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=600&q=80&fit=crop" alt="DFIR" />
+    <div class="carousel-body">
+     <span class="example-tag">Example</span>
+     <div class="badge" style="margin-bottom:10px">SecOps</div>
+     <div class="h3">Detection engineering overhaul for a growing SOC</div>
+     <p class="body" style="margin-bottom:14px">SOC team drowning in false positives. Detection logic rewritten to match real attack techniques, alert volume reduced by 70%, MITRE ATT&CK coverage mapped and gaps filled.</p>
+     <div class="label" style="margin-bottom:6px">Key artifacts</div>
+     <ul style="list-style:none;display:flex;flex-direction:column;gap:3px">
+      <li class="small">✦ Detection rule library (SIGMA format)</li>
+      <li class="small">✦ ATT&CK coverage heatmap</li>
+      <li class="small">✦ Alert triage playbooks</li>
+     </ul>
+    </div>
+   </div>
+
+   <div class="carousel-card">
+    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80&fit=crop" alt="Small business" />
+    <div class="carousel-body">
+     <span class="example-tag">Example</span>
+     <div class="badge" style="margin-bottom:10px">Small Business</div>
+     <div class="h3">Security baseline for a 12-attorney law firm</div>
+     <p class="body" style="margin-bottom:14px">No IT security staff, M365 with default settings, no MFA. Full workspace hardening, email security, client data policies, and staff training. Completed in two weeks.</p>
+     <div class="label" style="margin-bottom:6px">Key artifacts</div>
+     <ul style="list-style:none;display:flex;flex-direction:column;gap:3px">
+      <li class="small">✦ M365 security configuration report</li>
+      <li class="small">✦ Client data handling policy</li>
+      <li class="small">✦ Staff security awareness materials</li>
+     </ul>
+    </div>
+   </div>
+
+  </div>
+  <div class="carousel-nav">
+   <button class="carousel-btn" onclick="scrollCarousel(-1)" aria-label="Previous">←</button>
+   <button class="carousel-btn" onclick="scrollCarousel(1)" aria-label="Next">→</button>
+  </div>
  </div>
  </div>
 </section>
@@ -96,54 +204,51 @@
  <div class="wrap">
  <div class="eyebrow">Reporting standards</div>
  <h2 class="h2">What every deliverable from GoatSec contains.</h2>
- <p class="lead" style="margin-bottom:40px">We hold ourselves to a consistent reporting standard across every engagement type. No mystery, no inconsistency. Here's exactly what you get.</p>
+ <p class="lead" style="margin-bottom:40px">Consistent reporting standards across every engagement type. No mystery, no inconsistency.</p>
  <div class="g2" style="gap:24px">
- <div class="card card-warm">
- <div class="label" style="margin-bottom:14px">Assessment report structure</div>
- <div class="codeblock" style="white-space:pre-wrap;overflow-x:auto">1. Executive Summary
- One to two pages, plain language, board-ready.
- Risk posture, key findings, and recommended actions.
+  <div class="card card-warm">
+   <div class="label" style="margin-bottom:14px">Assessment report structure</div>
+   <div class="codeblock" style="white-space:pre-wrap;overflow-x:auto">1. Executive Summary
+   One to two pages, plain language, board-ready.
 
 2. Scope and Methodology
- What was reviewed, how, and what inputs were used.
+   What was reviewed, how, and what inputs were used.
 
 3. Findings Catalog
- Each finding: severity, business impact, evidence,
- and recommended remediation action.
+   Each finding: severity, business impact, evidence,
+   and recommended remediation action.
 
 4. Risk-Prioritized Remediation Roadmap
- Sprint-ready backlog ordered by risk and effort.
- Includes owner suggestions and dependencies.
+   Sprint-ready backlog ordered by risk and effort.
 
 5. Success Metrics
- How we measure whether remediation worked.
+   How we measure whether remediation worked.
 
 6. Appendix
- Evidence references, tool versions, scan configurations.
- </div>
- </div>
- <div>
- <div class="card card-warm" style="margin-bottom:16px">
- <div class="label" style="margin-bottom:14px">Integration handoff package</div>
- <ul style="display:flex;flex-direction:column;gap:10px;list-style:none">
- <li class="body">✦ Reference architecture diagram as-built</li>
- <li class="body">✦ Configuration baseline with annotated reasoning</li>
- <li class="body">✦ Test results and validation evidence</li>
- <li class="body">✦ Operational runbook with day-one operating instructions</li>
- <li class="body">✦ Known limitations and maintenance notes</li>
- <li class="body">✦ Rollback procedure with data safety guarantees</li>
- </ul>
- </div>
- <div class="card card-warm">
- <div class="label" style="margin-bottom:14px">Artifact library standards</div>
- <ul style="display:flex;flex-direction:column;gap:10px;list-style:none">
- <li class="body">✦ Engagement one-pager: scope clarity document before work begins</li>
- <li class="body">✦ Tool selection rubric: scoring documentation for vendor evaluation</li>
- <li class="body">✦ Executive KPI dashboard specification: what to track and why</li>
- <li class="body">✦ Policy templates: review-ready drafts your team can customize</li>
- </ul>
- </div>
- </div>
+   Evidence references, tool versions, scan configs.</div>
+  </div>
+  <div>
+   <div class="card card-warm" style="margin-bottom:16px">
+    <div class="label" style="margin-bottom:14px">Integration handoff package</div>
+    <ul style="display:flex;flex-direction:column;gap:10px;list-style:none">
+     <li class="body">✦ Reference architecture diagram as-built</li>
+     <li class="body">✦ Configuration baseline with annotated reasoning</li>
+     <li class="body">✦ Test results and validation evidence</li>
+     <li class="body">✦ Operational runbook with day-one instructions</li>
+     <li class="body">✦ Known limitations and maintenance notes</li>
+     <li class="body">✦ Rollback procedure with data safety guarantees</li>
+    </ul>
+   </div>
+   <div class="card card-warm">
+    <div class="label" style="margin-bottom:14px">Artifact library standards</div>
+    <ul style="display:flex;flex-direction:column;gap:10px;list-style:none">
+     <li class="body">✦ Engagement one-pager: scope clarity before work begins</li>
+     <li class="body">✦ Tool selection rubric: scoring docs for vendor evaluation</li>
+     <li class="body">✦ Executive KPI dashboard spec: what to track and why</li>
+     <li class="body">✦ Policy templates: review-ready drafts to customize</li>
+    </ul>
+   </div>
+  </div>
  </div>
  </div>
 </section>
@@ -154,46 +259,62 @@
 <section class="section">
  <div class="wrap">
  <div class="photo-strip">
- <img src="https://images.unsplash.com/photo-1590650516494-0c8e4a4dd67e?w=600&q=80&fit=crop" alt="Security work and collaboration" />
- <img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=600&q=80&fit=crop" alt="Team working together" />
- <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80&fit=crop" alt="Security review session" />
+  <img src="https://images.unsplash.com/photo-1590650516494-0c8e4a4dd67e?w=600&q=80&fit=crop" alt="Security work" />
+  <img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=600&q=80&fit=crop" alt="Team working" />
+  <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80&fit=crop" alt="Review session" />
  </div>
  </div>
 </section>
 
 <hr class="divider" />
 
-<!-- ARTIFACT SAMPLES -->
-<section class="section section-alt">
+<!-- ARTIFACT SAMPLES WITH EMAIL CAPTURE -->
+<section class="section section-alt" id="samples">
  <div class="wrap">
  <div class="eyebrow">Artifact samples</div>
  <h2 class="h2">What "done" looks like from GoatSec.</h2>
- <p class="lead" style="margin-bottom:40px">The best way to evaluate our work is to see examples. Reach out with your engagement type and we'll send representative samples under NDA.</p>
+ <p class="lead" style="margin-bottom:40px">Enter your email and we'll send representative samples. No spam, no sales drip, just the artifact you asked for.</p>
  <div class="g4">
- <div class="card" style="text-align:center">
- <div style="font-size:32px;margin-bottom:12px">📋</div>
- <div class="h4">Assessment report</div>
- <p class="small">Sample findings page and executive summary from an AppSec assessment.</p>
- <a class="btn btn-sm" href="contact.html" style="margin-top:14px;width:100%;justify-content:center">Request sample</a>
- </div>
- <div class="card" style="text-align:center">
- <div style="font-size:32px;margin-bottom:12px">🗂️</div>
- <div class="h4">Remediation roadmap</div>
- <p class="small">Sprint-formatted backlog from a vulnerability management engagement.</p>
- <a class="btn btn-sm" href="contact.html" style="margin-top:14px;width:100%;justify-content:center">Request sample</a>
- </div>
- <div class="card" style="text-align:center">
- <div style="font-size:32px;margin-bottom:12px">🔌</div>
- <div class="h4">Integration runbook</div>
- <p class="small">Operational runbook from a SIEM integration including rollback procedure.</p>
- <a class="btn btn-sm" href="contact.html" style="margin-top:14px;width:100%;justify-content:center">Request sample</a>
- </div>
- <div class="card" style="text-align:center">
- <div style="font-size:32px;margin-bottom:12px">📊</div>
- <div class="h4">Board-ready summary</div>
- <p class="small">One-page executive summary from a cloud security posture review.</p>
- <a class="btn btn-sm" href="contact.html" style="margin-top:14px;width:100%;justify-content:center">Request sample</a>
- </div>
+  <div class="card" style="text-align:center">
+   <div style="font-size:32px;margin-bottom:12px">📋</div>
+   <div class="h4">Assessment report</div>
+   <p class="small" style="margin-bottom:0">Sample findings page and executive summary from an AppSec assessment.</p>
+   <div class="sample-form" data-sample="assessment-report">
+    <input type="email" placeholder="you@company.com" aria-label="Email for assessment report sample" />
+    <button onclick="requestSample(this)">Send</button>
+   </div>
+   <div class="sample-sent">Sent! Check your inbox.</div>
+  </div>
+  <div class="card" style="text-align:center">
+   <div style="font-size:32px;margin-bottom:12px">🗂️</div>
+   <div class="h4">Remediation roadmap</div>
+   <p class="small" style="margin-bottom:0">Sprint-formatted backlog from a vulnerability management engagement.</p>
+   <div class="sample-form" data-sample="remediation-roadmap">
+    <input type="email" placeholder="you@company.com" aria-label="Email for remediation roadmap sample" />
+    <button onclick="requestSample(this)">Send</button>
+   </div>
+   <div class="sample-sent">Sent! Check your inbox.</div>
+  </div>
+  <div class="card" style="text-align:center">
+   <div style="font-size:32px;margin-bottom:12px">🔌</div>
+   <div class="h4">Integration runbook</div>
+   <p class="small" style="margin-bottom:0">Operational runbook from a SIEM integration including rollback procedure.</p>
+   <div class="sample-form" data-sample="integration-runbook">
+    <input type="email" placeholder="you@company.com" aria-label="Email for integration runbook sample" />
+    <button onclick="requestSample(this)">Send</button>
+   </div>
+   <div class="sample-sent">Sent! Check your inbox.</div>
+  </div>
+  <div class="card" style="text-align:center">
+   <div style="font-size:32px;margin-bottom:12px">📊</div>
+   <div class="h4">Board-ready summary</div>
+   <p class="small" style="margin-bottom:0">One-page executive summary from a cloud security posture review.</p>
+   <div class="sample-form" data-sample="board-summary">
+    <input type="email" placeholder="you@company.com" aria-label="Email for board summary sample" />
+    <button onclick="requestSample(this)">Send</button>
+   </div>
+   <div class="sample-sent">Sent! Check your inbox.</div>
+  </div>
  </div>
  </div>
 </section>
@@ -201,18 +322,49 @@
 <section class="section">
  <div class="wrap">
  <div class="cta-band">
- <div class="eyebrow" style="justify-content:center;margin-bottom:16px">See it for yourself</div>
- <h2 class="h2">Request samples or book a scope call.</h2>
- <p class="lead">We'll send representative samples for your engagement type under NDA, or we can walk through our approach live in 15 minutes.</p>
- <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
- <a class="btn btn-accent" href="contact.html">Book a scope call</a>
- <a class="btn" href="mailto:goat@goatinfosec.com">Request samples by email</a>
- </div>
+  <div class="eyebrow" style="justify-content:center;margin-bottom:16px">See it for yourself</div>
+  <h2 class="h2">Request samples or book a scope call.</h2>
+  <p class="lead">We'll send representative samples for your engagement type, or walk through our approach live in 15 minutes.</p>
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+   <a class="btn btn-accent" href="contact.html">Book a scope call</a>
+   <a class="btn" href="mailto:goat@goatinfosec.com">Email us directly</a>
+  </div>
  </div>
  </div>
 </section>
 
 <div id="footer-slot"></div>
 <script src="nav.js"></script>
+<script>
+function scrollCarousel(dir){
+ const track = document.getElementById('caseCarousel');
+ const cardW = track.querySelector('.carousel-card').offsetWidth + 20;
+ track.scrollBy({left: dir * cardW, behavior:'smooth'});
+}
+
+function requestSample(btn){
+ const form = btn.closest('.sample-form');
+ const input = form.querySelector('input');
+ const email = input.value.trim();
+ if(!email || !email.includes('@')){
+  input.style.borderColor = '#e53e3e';
+  input.focus();
+  return;
+ }
+ const sample = form.dataset.sample;
+ // In production this would POST to an API. For now, redirect to contact with prefill.
+ const mailto = 'mailto:goat@goatinfosec.com?subject=Sample%20request%3A%20' + encodeURIComponent(sample) + '&body=' + encodeURIComponent('Please send me the ' + sample.replace(/-/g,' ') + ' sample.\n\nEmail: ' + email);
+ 
+ // Show success state
+ btn.textContent = '✓';
+ btn.disabled = true;
+ btn.style.opacity = '0.6';
+ input.disabled = true;
+ form.nextElementSibling.style.display = 'block';
+ 
+ // Open mailto
+ window.location.href = mailto;
+}
+</script>
 </body>
 </html>

@@ -181,6 +181,31 @@ function handleSubmit(e){
  document.getElementById('success-msg').style.display = 'block';
  e.target.scrollIntoView({behavior:'smooth', block:'end'});
 }
+
+// Pre-fill from query params (e.g. ?svc=smb-law or ?sample=assessment-report)
+(function(){
+ const params = new URLSearchParams(location.search);
+ const svc = params.get('svc');
+ const sample = params.get('sample');
+ if(sample){
+  const ta = document.querySelector('textarea');
+  if(ta) ta.value = 'I\'d like to request the ' + sample.replace(/-/g,' ') + ' sample artifact.';
+  const selects = document.querySelectorAll('select');
+  if(selects[0]) selects[0].value = 'Fewer than 50 employees';
+ }
+ if(svc){
+  const ta = document.querySelector('textarea');
+  const svcMap = {
+   'smb-law': 'Interested in the Small Law Firm Security Bundle.',
+   'smb-dental': 'Interested in the HIPAA Security Bundle for our practice.',
+   'smb-saas': 'Interested in the Seed-to-Series-A Security Bundle.',
+   'smb-accounting': 'Interested in the Accounting Firm Security Package.',
+   'smb-realestate': 'Interested in Real Estate Wire Fraud Prevention.',
+   'smb-gym': 'Interested in the Membership Business Security package.'
+  };
+  if(ta && svcMap[svc]) ta.value = svcMap[svc];
+ }
+})();
 </script>
 </body>
 </html>
