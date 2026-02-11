@@ -1,0 +1,1158 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+ <title>All Services | GoatSec</title>
+ <meta name="description" content="Every information security service GoatSec can scope and deliver. 80+ services across AppSec, cloud, RF, satellite, hardware, OT/ICS, AI, red team, GRC, and beyond." />
+ <link rel="stylesheet" href="shared.css" />
+ <style>
+ .filter-bar{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:92px;z-index:50;background:rgba(201,188,158,.95);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);margin:0 -28px;padding:12px 28px}
+ @media(max-width:660px){.filter-bar{top:56px;overflow-x:auto;flex-wrap:nowrap;padding:10px 16px;margin:0 -16px}}
+ .filter-btn{padding:7px 15px;border-radius:999px;border:1px solid var(--line-med);background:var(--surface-mid);cursor:pointer;font-size:12px;font-weight:500;color:var(--text-2);transition:all .15s;white-space:nowrap;flex-shrink:0}
+ .filter-btn:hover{background:var(--surface);box-shadow:var(--shadow-sm)}
+ .filter-btn.active{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 4px 14px rgba(138,94,46,.28)}
+ .search-bar{min-width:180px;max-width:280px;flex-shrink:0;padding:8px 14px;border-radius:999px;border:1px solid var(--line-med);background:var(--surface);font-size:13px;color:var(--text);outline:none;transition:border-color .2s,box-shadow .2s}
+ .search-bar:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(138,94,46,.12)}
+ .catalog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;margin-top:24px}
+ @media(max-width:660px){.catalog-grid{grid-template-columns:1fr}}
+ .svc-card-link{text-decoration:none;color:inherit;display:block}
+ .svc-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-sm);transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column;height:100%}
+ .svc-card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+ .svc-card.hidden{display:none}
+ .svc-img{width:100%;height:150px;object-fit:cover;display:block;flex-shrink:0}
+ .svc-body{padding:18px 20px 14px;flex:1;display:flex;flex-direction:column}
+ .svc-tag{display:inline-flex;align-items:center;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:6px}
+ .svc-title{font-size:16px;font-weight:700;margin-bottom:6px;line-height:1.25}
+ .svc-desc{font-size:13px;line-height:1.6;color:var(--text-muted);flex:1;margin-bottom:12px}
+ .svc-expand-btn{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--accent);margin-top:auto}
+ .count-label{font-size:13px;color:var(--text-muted)}
+ #no-results{display:none;grid-column:1/-1;text-align:center;padding:60px 0;color:var(--text-muted)}
+ </style>
+ <link rel="icon" sizes="32x32" href="favicon-32.png" />
+ <link rel="icon" sizes="192x192" href="favicon-192.png" />
+ <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+<body>
+<div id="nav-slot"></div>
+
+<div class="wrap">
+ <div class="hero-wrap" style="margin-bottom:0">
+ <div class="hero-content" style="padding:48px 48px 44px">
+ <div class="eyebrow">All Services</div>
+ <h1 class="h1">Every security discipline. <span>One accountable partner.</span></h1>
+ <p class="lead">From AppSec and cloud hardening to satellite security, RF, mobile, OT/ICS, hardware, and beyond. Click any tile to see full scope, deliverables, and timeline.</p>
+ </div>
+ </div>
+</div>
+
+<div class="wrap">
+ <div class="filter-bar" id="filter-bar">
+ <input class="search-bar" type="search" id="search-input" placeholder="Search services…" oninput="filterCards()" />
+ <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
+ <button class="filter-btn" onclick="setFilter('appsec',this)">Application Security</button>
+ <button class="filter-btn" onclick="setFilter('cloud',this)">Cloud & Platform</button>
+ <button class="filter-btn" onclick="setFilter('mobile',this)">Mobile Security</button>
+ <button class="filter-btn" onclick="setFilter('rf',this)">RF & Wireless</button>
+ <button class="filter-btn" onclick="setFilter('network',this)">Network Security</button>
+ <button class="filter-btn" onclick="setFilter('hardware',this)">Hardware & IoT</button>
+ <button class="filter-btn" onclick="setFilter('ot',this)">OT / ICS</button>
+ <button class="filter-btn" onclick="setFilter('ai',this)">AI & Machine Learning</button>
+ <button class="filter-btn" onclick="setFilter('redteam',this)">Red Team & Adversary Simulation</button>
+ <button class="filter-btn" onclick="setFilter('grc',this)">GRC & Compliance</button>
+ <button class="filter-btn" onclick="setFilter('training',this)">Security Training</button>
+ <button class="filter-btn" onclick="setFilter('ops',this)">Security Operations</button>
+ <button class="filter-btn" onclick="setFilter('identity',this)">Identity & Access</button>
+ <button class="filter-btn" onclick="setFilter('data',this)">Data Security</button>
+ <button class="filter-btn" onclick="setFilter('physical',this)">Physical Security</button>
+ <button class="filter-btn" onclick="setFilter('satellite',this)">Space & Satellite</button>
+ <button class="filter-btn" onclick="setFilter('crypto',this)">Cryptography & PKI</button>
+ <button class="filter-btn" onclick="setFilter('automotive',this)">Automotive</button>
+ <button class="filter-btn" onclick="setFilter('telecom',this)">Telecom Security</button>
+ </div>
+</div>
+
+<div class="wrap">
+ <div style="margin-top:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+ <p class="count-label"><span id="visible-count">0</span> services</p>
+ </div>
+ <div class="catalog-grid" id="catalog">
+ <a class="svc-card-link" href="svc/asvs-application-security-assessment.html" data-cat="appsec" data-keywords="asvs owasp web app authentication session access control input validation crypto">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=600&q=75&fit=crop" alt="ASVS Application Security Assessment" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">APPSEC</span>
+ <div class="svc-title">ASVS Application Security Assessment</div>
+ <p class="svc-desc">OWASP ASVS-aligned assessment of your web application covering authentication, session management, access control, input validation, and cryptography, with a sprint-ready remediation backlog.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/threat-modeling.html" data-cat="appsec" data-keywords="threat model stride pasta dfd feature security design architecture review">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=75&fit=crop" alt="Threat Modeling" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">APPSEC</span>
+ <div class="svc-title">Threat Modeling</div>
+ <p class="svc-desc">Collaborative threat modeling sessions for new features, APIs, or system designs, using STRIDE, PASTA, or a custom method. Produces a documented model your team can update and reference in design reviews.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/secure-sdlc-design-and-implementation.html" data-cat="appsec" data-keywords="secure sdlc devops pipeline gates security champion developer shift left ci cd">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=600&q=75&fit=crop" alt="Secure SDLC Design and Implementation" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">APPSEC</span>
+ <div class="svc-title">Secure SDLC Design and Implementation</div>
+ <p class="svc-desc">Design and deploy security checkpoints across your software development lifecycle, requirements review, design sign-off, SAST/SCA gates in CI/CD, and pre-release security acceptance criteria.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/manual-code-review.html" data-cat="appsec" data-keywords="code review manual static analysis security bugs source authentication authorization crypto">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=75&fit=crop" alt="Manual Code Review" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">APPSEC</span>
+ <div class="svc-title">Manual Code Review</div>
+ <p class="svc-desc">Security-focused manual review of high-risk code areas, authentication flows, authorization logic, cryptographic implementations, and third-party integrations that scanners routinely miss.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/api-security-review.html" data-cat="appsec" data-keywords="api security rest graphql grpc endpoint testing fuzzing auth rate limit">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=75&fit=crop" alt="API Security Review" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">APPSEC</span>
+ <div class="svc-title">API Security Review</div>
+ <p class="svc-desc">Security assessment of REST, GraphQL, or gRPC APIs, covering authentication, authorization enforcement, input validation, rate limiting, and sensitive data exposure across all endpoints.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/web-application-penetration-test.html" data-cat="appsec" data-keywords="web application pentest penetration test dast burp owasp top 10 black box grey box">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&q=75&fit=crop" alt="Web Application Penetration Test" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">APPSEC</span>
+ <div class="svc-title">Web Application Penetration Test</div>
+ <p class="svc-desc">Scoped black-box, grey-box, or white-box penetration test of your web application, manual exploitation of real vulnerabilities, not just an automated scan report with a cover page.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/software-composition-analysis-and-sbom.html" data-cat="appsec" data-keywords="sca software composition analysis open source dependency supply chain sbom sbom license">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=600&q=75&fit=crop" alt="Software Composition Analysis and SBOM" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">APPSEC</span>
+ <div class="svc-title">Software Composition Analysis and SBOM</div>
+ <p class="svc-desc">Identify and triage open-source dependency vulnerabilities, license compliance risks, and supply chain exposure, with an SBOM output and a workflow to keep it current.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/security-champion-program.html" data-cat="appsec" data-keywords="security champion program developer advocate internal appsec training engineering culture">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=75&fit=crop" alt="Security Champion Program" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">APPSEC</span>
+ <div class="svc-title">Security Champion Program</div>
+ <p class="svc-desc">Design and launch a Security Champion program that embeds security advocates across your engineering organization, with curriculum, tooling, escalation paths, and metrics for program health.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/smart-contract-security-audit.html" data-cat="appsec" data-keywords="smart contract solidity vyper audit blockchain ethereum defi reentrancy overflow web3">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600&q=75&fit=crop" alt="Smart Contract Security Audit" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">APPSEC</span>
+ <div class="svc-title">Smart Contract Security Audit</div>
+ <p class="svc-desc">Manual and automated security audit of Solidity, Vyper, or Rust smart contracts, covering reentrancy, integer overflow, access control flaws, oracle manipulation, and economic attack vectors.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/cloud-security-posture-review.html" data-cat="cloud" data-keywords="cloud posture cspm aws azure gcp misconfig storage iam logging network">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=75&fit=crop" alt="Cloud Security Posture Review" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">CLOUD</span>
+ <div class="svc-title">Cloud Security Posture Review</div>
+ <p class="svc-desc">Comprehensive CSPM-informed review of your AWS, GCP, or Azure environment, covering storage exposure, IAM misconfigurations, logging gaps, and network policy violations.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/iam-governance-and-least-privilege-enforcement.html" data-cat="cloud" data-keywords="iam identity access management least privilege role policy aws azure ad service account">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1633265486064-086b219458ec?w=600&q=75&fit=crop" alt="IAM Governance and Least-Privilege Enforcement" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">CLOUD</span>
+ <div class="svc-title">IAM Governance and Least-Privilege Enforcement</div>
+ <p class="svc-desc">Audit existing IAM policies, identify over-privileged roles and service accounts, and design an enforceable least-privilege model with policy-as-code implementation.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/kubernetes-security-hardening.html" data-cat="cloud" data-keywords="kubernetes k8s container hardening pod security cis benchmark rbac network policy runtime">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=600&q=75&fit=crop" alt="Kubernetes Security Hardening" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">CLOUD</span>
+ <div class="svc-title">Kubernetes Security Hardening</div>
+ <p class="svc-desc">CIS Benchmark-aligned review and hardening of Kubernetes clusters, covering RBAC, network policies, pod security standards, secrets management, runtime security, and admission controllers.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/infrastructure-as-code-security.html" data-cat="cloud" data-keywords="infrastructure as code iac terraform pulumi cloudformation security scanning policy opa sentinel">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=600&q=75&fit=crop" alt="Infrastructure-as-Code Security" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">CLOUD</span>
+ <div class="svc-title">Infrastructure-as-Code Security</div>
+ <p class="svc-desc">Security review and hardening of Terraform, Pulumi, or CloudFormation code, plus policy-as-code enforcement to prevent misconfigurations from reaching production.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/serverless-and-function-security-review.html" data-cat="cloud" data-keywords="serverless lambda function faas security event driven cold start resource based policy">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1560732488-6b0df240254a?w=600&q=75&fit=crop" alt="Serverless and Function Security Review" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">CLOUD</span>
+ <div class="svc-title">Serverless and Function Security Review</div>
+ <p class="svc-desc">Security assessment for serverless architectures (AWS Lambda, Cloud Functions, Azure Functions), covering IAM, event injection, data exposure, and resource-based policy misconfigurations.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/container-image-security-and-registry-hardening.html" data-cat="cloud" data-keywords="container docker image registry scanning base image dockerfile hardening ci cd pipeline">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1580894894513-541e068a3e2b?w=600&q=75&fit=crop" alt="Container Image Security and Registry Hardening" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">CLOUD</span>
+ <div class="svc-title">Container Image Security and Registry Hardening</div>
+ <p class="svc-desc">Security review of your container build pipeline, base image hygiene, image scanning integration, and container registry access controls: from Dockerfile to deployment.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/mobile-application-penetration-test-ios-and-android.html" data-cat="mobile" data-keywords="mobile ios android app pentest masvs owasp security static dynamic traffic api">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=75&fit=crop" alt="Mobile Application Penetration Test (iOS and Android)" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">MOBILE</span>
+ <div class="svc-title">Mobile Application Penetration Test (iOS and Android)</div>
+ <p class="svc-desc">OWASP MASVS-aligned assessment of iOS or Android applications, static analysis, dynamic analysis, traffic interception, and backend API testing against your full mobile attack surface.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/mobile-binary-analysis-and-reverse-engineering.html" data-cat="mobile" data-keywords="mobile reverse engineering binary analysis disassembly obfuscation anti-tamper hardcoded secrets">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=75&fit=crop" alt="Mobile Binary Analysis and Reverse Engineering" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">MOBILE</span>
+ <div class="svc-title">Mobile Binary Analysis and Reverse Engineering</div>
+ <p class="svc-desc">Static binary analysis of compiled mobile applications, extracting hardcoded secrets, API keys, endpoint URLs, and cryptographic material that should not survive in a shipped binary.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/mdm-and-enterprise-mobile-security.html" data-cat="mobile" data-keywords="mobile mdm enterprise deployment app security corporate byod policy containerization intune jamf">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=600&q=75&fit=crop" alt="MDM and Enterprise Mobile Security" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">MOBILE</span>
+ <div class="svc-title">MDM and Enterprise Mobile Security</div>
+ <p class="svc-desc">Assessment and design of mobile device management deployments, enterprise application distribution security, BYOD policy controls, and containerization for corporate data on personal devices.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/mobile-payments-and-nfc-security-review.html" data-cat="mobile" data-keywords="mobile payment fintech banking app nfc contactless tap to pay pci tokenization">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=75&fit=crop" alt="Mobile Payments and NFC Security Review" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">MOBILE</span>
+ <div class="svc-title">Mobile Payments and NFC Security Review</div>
+ <p class="svc-desc">Security review of mobile payment flows, tokenization implementations, NFC transaction security, and PCI DSS alignment for fintech and retail apps handling payment data.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/ios-secure-enclave-and-keychain-security-review.html" data-cat="mobile" data-keywords="ios secure enclave keychain biometric touchid faceid authentication secure storage">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=600&q=75&fit=crop" alt="iOS Secure Enclave and Keychain Security Review" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">MOBILE</span>
+ <div class="svc-title">iOS Secure Enclave and Keychain Security Review</div>
+ <p class="svc-desc">Deep review of how your iOS application uses Secure Enclave, Keychain, and biometric authentication, identifying data that is stored insecurely or protected with insufficient access controls.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/wireless-network-security-assessment.html" data-cat="rf" data-keywords="wireless wifi 802.11 wpa2 wpa3 evil twin rogue ap rf assessment enterprise guest network">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&q=75&fit=crop" alt="Wireless Network Security Assessment" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">RF</span>
+ <div class="svc-title">Wireless Network Security Assessment</div>
+ <p class="svc-desc">On-site assessment of enterprise wireless infrastructure, rogue access points, misconfigured SSIDs, WPA2/3 weaknesses, guest network isolation failures, and RF exposure across your physical footprint.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/bluetooth-and-ble-security-assessment.html" data-cat="rf" data-keywords="bluetooth ble low energy proximity attack sniffer pairing security gatt advertising">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600&q=75&fit=crop" alt="Bluetooth and BLE Security Assessment" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">RF</span>
+ <div class="svc-title">Bluetooth and BLE Security Assessment</div>
+ <p class="svc-desc">Security review of Bluetooth Classic and BLE implementations, pairing protocol weaknesses, GATT service exposure, sniffing and replay attacks, and proximity-based attack surface.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/iot-wireless-protocol-assessment.html" data-cat="rf" data-keywords="zigbee zwave lorawan thread mqtt iot protocol wireless embedded sensor mesh lpwan">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=600&q=75&fit=crop" alt="IoT Wireless Protocol Assessment" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">RF</span>
+ <div class="svc-title">IoT Wireless Protocol Assessment</div>
+ <p class="svc-desc">Security testing of Zigbee, Z-Wave, LoRaWAN, Thread, and other IoT wireless protocols, traffic interception, replay attacks, key extraction, and join procedure weaknesses.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/rfid-and-physical-access-control-security.html" data-cat="rf" data-keywords="rfid nfc badge access control physical proximity card clone 125khz mifare hid">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&q=75&fit=crop" alt="RFID and Physical Access Control Security" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">RF</span>
+ <div class="svc-title">RFID and Physical Access Control Security</div>
+ <p class="svc-desc">Assessment of RFID-based physical access control systems, card cloning feasibility, reader attack surface, credential brute-force windows, and upgrade paths for legacy systems.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/software-defined-radio-signal-analysis.html" data-cat="rf" data-keywords="sdr software defined radio signal capture replay gnuradio frequency analysis proprietary protocol">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1562408590-e32931084e23?w=600&q=75&fit=crop" alt="Software-Defined Radio Signal Analysis" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">RF</span>
+ <div class="svc-title">Software-Defined Radio Signal Analysis</div>
+ <p class="svc-desc">SDR-based capture and analysis of wireless signals for proprietary protocol reverse engineering, signal replay testing, and RF spectrum assessment for products transmitting on unlicensed bands.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/automotive-rf-and-keyless-entry-security.html" data-cat="rf" data-keywords="automotive rf keyless entry relay attack rolling code key fob remote start passive entry">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&q=75&fit=crop" alt="Automotive RF and Keyless Entry Security" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">RF</span>
+ <div class="svc-title">Automotive RF and Keyless Entry Security</div>
+ <p class="svc-desc">Security assessment of keyless entry, remote start, and passive entry systems, relay attack feasibility, rolling code analysis, and RF threat modeling for vehicle access systems.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/internal-network-penetration-test.html" data-cat="network" data-keywords="network pentest internal external segmentation vlan lateral movement active directory kerberos">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?w=600&q=75&fit=crop" alt="Internal Network Penetration Test" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">NETWORK</span>
+ <div class="svc-title">Internal Network Penetration Test</div>
+ <p class="svc-desc">Adversarial simulation of an attacker with internal network access, lateral movement paths, privilege escalation routes, credential exposure, and segmentation failures.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/external-attack-surface-assessment.html" data-cat="network" data-keywords="external network pentest attack surface perimeter internet facing asset subdomain takeover asm">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600&q=75&fit=crop" alt="External Attack Surface Assessment" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">NETWORK</span>
+ <div class="svc-title">External Attack Surface Assessment</div>
+ <p class="svc-desc">Enumeration and testing of your internet-facing attack surface, exposed services, certificate hygiene, subdomain takeover candidates, misconfigured cloud storage, and forgotten assets.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/firewall-rule-review-and-segmentation-assessment.html" data-cat="network" data-keywords="firewall review rule analysis segmentation policy zero trust network access bypass shadow rule">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1558002038-1055907df827?w=600&q=75&fit=crop" alt="Firewall Rule Review and Segmentation Assessment" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">NETWORK</span>
+ <div class="svc-title">Firewall Rule Review and Segmentation Assessment</div>
+ <p class="svc-desc">Review of firewall rule sets and network segmentation design, identifying overly permissive rules, shadow rules, segmentation bypass paths, and a prioritized cleanup roadmap.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/vpn-and-remote-access-security-review.html" data-cat="network" data-keywords="vpn remote access ssl tls zero trust ztna secure access split tunnel mfa authentication">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=600&q=75&fit=crop" alt="VPN and Remote Access Security Review" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">NETWORK</span>
+ <div class="svc-title">VPN and Remote Access Security Review</div>
+ <p class="svc-desc">Assessment of VPN configurations, split-tunneling policies, authentication requirements, and zero-trust network access implementations.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/active-directory-security-assessment.html" data-cat="network" data-keywords="active directory ad kerberos bloodhound acl delegation domain admin privilege escalation dcsync">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=75&fit=crop" alt="Active Directory Security Assessment" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">NETWORK</span>
+ <div class="svc-title">Active Directory Security Assessment</div>
+ <p class="svc-desc">Deep assessment of your Active Directory environment. Kerberos attack paths, ACL abuse, delegation misconfigurations, AdminSDHolder issues, and domain dominance vectors.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/hardware-and-embedded-device-security.html" data-cat="hardware" data-keywords="hardware pentest embedded firmware jtag uart debug interface iot spi flash extraction">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1516387938699-a93567ec168e?w=600&q=75&fit=crop" alt="Hardware and Embedded Device Security" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">HARDWARE</span>
+ <div class="svc-title">Hardware and Embedded Device Security</div>
+ <p class="svc-desc">Physical and logical security testing of embedded systems. UART, JTAG, SPI interface exploitation, firmware extraction, debug port enumeration, and hardcoded credential extraction.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/firmware-security-analysis.html" data-cat="hardware" data-keywords="firmware analysis reverse engineer binwalk embedded linux extraction vulnerability hardcoded ota update">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=600&q=75&fit=crop" alt="Firmware Security Analysis" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">HARDWARE</span>
+ <div class="svc-title">Firmware Security Analysis</div>
+ <p class="svc-desc">Static and dynamic analysis of embedded firmware, file system extraction, hardcoded secret identification, vulnerable component enumeration, update mechanism security, and crypto review.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/hardware-supply-chain-risk-assessment.html" data-cat="hardware" data-keywords="supply chain hardware component counterfeit tamper evidence trusted provenance procurement">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&q=75&fit=crop" alt="Hardware Supply Chain Risk Assessment" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">HARDWARE</span>
+ <div class="svc-title">Hardware Supply Chain Risk Assessment</div>
+ <p class="svc-desc">Review of hardware procurement processes, component provenance documentation, counterfeit detection controls, and tamper-evidence mechanisms for high-risk supply chains.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/iot-product-security-program.html" data-cat="hardware" data-keywords="iot security program product security consumer device medical secure boot code signing ota">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1556155092-490a1ba16284?w=600&q=75&fit=crop" alt="IoT Product Security Program" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">HARDWARE</span>
+ <div class="svc-title">IoT Product Security Program</div>
+ <p class="svc-desc">Security program design for organizations building connected products, secure boot, code signing, OTA update security, data minimization, and a product security disclosure policy.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/side-channel-attack-assessment.html" data-cat="hardware" data-keywords="side channel power analysis timing attack em electromagnetic differential simple spa dpa hardware crypto">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&q=75&fit=crop" alt="Side-Channel Attack Assessment" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">HARDWARE</span>
+ <div class="svc-title">Side-Channel Attack Assessment</div>
+ <p class="svc-desc">Power analysis, timing attacks, and electromagnetic side-channel testing of cryptographic implementations in hardware, for devices where secrets must resist physical-proximity adversaries.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/ot-and-ics-security-assessment.html" data-cat="ot" data-keywords="ot ics scada plc industrial control system operational technology purdue modbus dnp3 ethernetip">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=75&fit=crop" alt="OT and ICS Security Assessment" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">OT</span>
+ <div class="svc-title">OT and ICS Security Assessment</div>
+ <p class="svc-desc">Security assessment of operational technology environments, asset inventory, IT/OT boundary review, protocol security (Modbus, DNP3, EtherNet/IP), and remote access exposure.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/scada-and-hmi-security-review.html" data-cat="ot" data-keywords="scada hmi historian remote access purdue model segmentation industrial default credentials">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=75&fit=crop" alt="SCADA and HMI Security Review" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">OT</span>
+ <div class="svc-title">SCADA and HMI Security Review</div>
+ <p class="svc-desc">Security review of SCADA and HMI systems, default credentials, insecure remote access, historian data exposure, and IT/OT segmentation gaps.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/iec-62443-and-ot-framework-compliance.html" data-cat="ot" data-keywords="iec 62443 nist 800-82 ot framework compliance critical infrastructure nerc cip gap assessment">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&q=75&fit=crop" alt="IEC 62443 and OT Framework Compliance" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">OT</span>
+ <div class="svc-title">IEC 62443 and OT Framework Compliance</div>
+ <p class="svc-desc">Gap assessment and compliance roadmap for IEC 62443 or NIST SP 800-82 in operational technology environments, adapted to ICS change-management realities.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/nerc-cip-compliance-support.html" data-cat="ot" data-keywords="nerc cip electric utility bulk electric system reliability standard compliance gap evidence">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&q=75&fit=crop" alt="NERC CIP Compliance Support" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">OT</span>
+ <div class="svc-title">NERC CIP Compliance Support</div>
+ <p class="svc-desc">Gap assessment, evidence collection, and compliance program support for NERC CIP reliability standards, for electric utilities and bulk electric system operators.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/llm-and-generative-ai-security-assessment.html" data-cat="ai" data-keywords="llm large language model ai security prompt injection jailbreak gpt claude data leakage context window">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&q=75&fit=crop" alt="LLM and Generative AI Security Assessment" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">AI</span>
+ <div class="svc-title">LLM and Generative AI Security Assessment</div>
+ <p class="svc-desc">Structured security assessment of LLM-powered features, prompt injection, indirect injection, data leakage through outputs, context window attacks, and jailbreak resistance.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/ml-model-security-and-adversarial-robustness.html" data-cat="ai" data-keywords="ml model security adversarial evasion poisoning model inversion membership inference training data">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&q=75&fit=crop" alt="ML Model Security and Adversarial Robustness" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">AI</span>
+ <div class="svc-title">ML Model Security and Adversarial Robustness</div>
+ <p class="svc-desc">Security assessment for traditional ML models, adversarial evasion testing, model inversion, membership inference, training data extraction, and watermarking validation.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/agentic-ai-and-autonomous-system-security.html" data-cat="ai" data-keywords="ai agent agentic tool use autonomous system permission scope action chain security mcp function calling">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=75&fit=crop" alt="Agentic AI and Autonomous System Security" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">AI</span>
+ <div class="svc-title">Agentic AI and Autonomous System Security</div>
+ <p class="svc-desc">Security review for AI agents with tool access, permission scope, unintended action chain risks, prompt injection through external content, and human oversight control gaps.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/ai-governance-and-policy-framework.html" data-cat="ai" data-keywords="ai governance policy eu ai act nist ai rmf responsible ai framework acceptable use risk classification">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=75&fit=crop" alt="AI Governance and Policy Framework" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">AI</span>
+ <div class="svc-title">AI Governance and Policy Framework</div>
+ <p class="svc-desc">Design and implement an AI governance framework, acceptable use policy, human oversight controls, logging requirements, EU AI Act readiness, and risk classification for new AI use cases.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/ai-model-supply-chain-security.html" data-cat="ai" data-keywords="ai supply chain model registry hugging face dependency third party model provenance pickle onnx vector database">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1655720828018-edd2daec9349?w=600&q=75&fit=crop" alt="AI Model Supply Chain Security" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">AI</span>
+ <div class="svc-title">AI Model Supply Chain Security</div>
+ <p class="svc-desc">Risk assessment of your AI/ML supply chain, third-party model provenance, serialized model risks (pickle, ONNX), model registry access controls, and vector database security.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/ai-red-teaming-and-jailbreak-research.html" data-cat="ai" data-keywords="ai red team jailbreak llm adversarial harmful content safety testing policy bypass multi-turn">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1555255707-c07966088b7b?w=600&q=75&fit=crop" alt="AI Red-Teaming and Jailbreak Research" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">AI</span>
+ <div class="svc-title">AI Red-Teaming and Jailbreak Research</div>
+ <p class="svc-desc">Structured adversarial red-teaming of LLM-based products to discover novel jailbreaks, policy violations, and misuse pathways before your users or adversaries do.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/full-scope-red-team-operation.html" data-cat="redteam" data-keywords="red team full scope adversary simulation attack chain breach assume compromise crown jewel objectives">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=600&q=75&fit=crop" alt="Full-Scope Red Team Operation" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">REDTEAM</span>
+ <div class="svc-title">Full-Scope Red Team Operation</div>
+ <p class="svc-desc">Realistic, objectives-based adversary simulation across people, process, and technology, scoped to a specific crown jewel or worst-case scenario, not generic network compromise.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/social-engineering-and-phishing-simulation.html" data-cat="redteam" data-keywords="social engineering phishing vishing pretexting spear phishing human factor email smishing">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1563206767-5b18f218e8de?w=600&q=75&fit=crop" alt="Social Engineering and Phishing Simulation" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">REDTEAM</span>
+ <div class="svc-title">Social Engineering and Phishing Simulation</div>
+ <p class="svc-desc">Targeted phishing, vishing, and pretexting campaigns against specific individuals or teams, with realistic pretext development, tracking, and targeted awareness training for at-risk users.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/physical-security-red-team.html" data-cat="redteam" data-keywords="physical security assessment badge tailgating dumpster dive facility breach intrusion test red team">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?w=600&q=75&fit=crop" alt="Physical Security Red Team" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">REDTEAM</span>
+ <div class="svc-title">Physical Security Red Team</div>
+ <p class="svc-desc">Authorized physical intrusion testing, tailgating, badge cloning, dumpster diving, workstation access, and social engineering of facility staff.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/purple-team-exercise.html" data-cat="redteam" data-keywords="purple team detection validation mitre attck coverage adversary simulation collaborative blue team">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=75&fit=crop" alt="Purple Team Exercise" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">REDTEAM</span>
+ <div class="svc-title">Purple Team Exercise</div>
+ <p class="svc-desc">Collaborative adversary simulation where offense and defense work together, running ATT&CK-mapped techniques in real time while your detection team validates coverage and tunes rules.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/assumed-breach-and-lateral-movement-assessment.html" data-cat="redteam" data-keywords="assumed breach lateral movement post exploitation privilege escalation insider threat foothold">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&q=75&fit=crop" alt="Assumed Breach and Lateral Movement Assessment" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">REDTEAM</span>
+ <div class="svc-title">Assumed Breach and Lateral Movement Assessment</div>
+ <p class="svc-desc">Starting from a foothold, we map lateral movement paths, privilege escalation routes, and crown jewel access, validating how far an attacker gets after initial access.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/ransomware-resilience-assessment.html" data-cat="redteam" data-keywords="ransomware resilience assessment backup recovery ir plan detection containment business continuity">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=600&q=75&fit=crop" alt="Ransomware Resilience Assessment" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">REDTEAM</span>
+ <div class="svc-title">Ransomware Resilience Assessment</div>
+ <p class="svc-desc">End-to-end assessment of your ability to detect, contain, and recover from a ransomware attack, combining technical testing with IR process review and backup validation.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/soc-2-readiness-and-preparation.html" data-cat="grc" data-keywords="soc2 soc 2 type 1 type 2 trust services criteria readiness preparation evidence audit">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&q=75&fit=crop" alt="SOC 2 Readiness and Preparation" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">GRC</span>
+ <div class="svc-title">SOC 2 Readiness and Preparation</div>
+ <p class="svc-desc">Gap assessment and readiness preparation for SOC 2 Type I or Type II. TSC mapping, evidence collection organization, control implementation guidance, and auditor coordination.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/iso-27001-isms-implementation.html" data-cat="grc" data-keywords="iso 27001 isms annex a information security management system certification scope soa risk treatment">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=75&fit=crop" alt="ISO 27001 ISMS Implementation" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">GRC</span>
+ <div class="svc-title">ISO 27001 ISMS Implementation</div>
+ <p class="svc-desc">End-to-end ISO 27001 implementation support, scope definition, Annex A gap analysis, ISMS documentation, Statement of Applicability, risk treatment plan, and certification prep.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/hipaa-security-rule-assessment.html" data-cat="grc" data-keywords="hipaa healthcare covered entity business associate security rule risk analysis safeguard phi ephi">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=600&q=75&fit=crop" alt="HIPAA Security Rule Assessment" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">GRC</span>
+ <div class="svc-title">HIPAA Security Rule Assessment</div>
+ <p class="svc-desc">Risk analysis and gap assessment against the HIPAA Security Rule, administrative, physical, and technical safeguard evaluation with a remediation plan sized to your organization.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/pci-dss-scoping-and-readiness.html" data-cat="grc" data-keywords="pci dss payment card industry cardholder data environment cde scope saq network segmentation">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=600&q=75&fit=crop" alt="PCI DSS Scoping and Readiness" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">GRC</span>
+ <div class="svc-title">PCI DSS Scoping and Readiness</div>
+ <p class="svc-desc">CDE scoping, SAQ pathway guidance, network segmentation validation, and evidence preparation for PCI DSS compliance: from scope reduction through evidence assembly.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/fedramp-authorization-support.html" data-cat="grc" data-keywords="fedramp federal risk authorization management program ato nist 800-53 ssp system security plan government">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1501466044931-62695aada8e9?w=600&q=75&fit=crop" alt="FedRAMP Authorization Support" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">GRC</span>
+ <div class="svc-title">FedRAMP Authorization Support</div>
+ <p class="svc-desc">System Security Plan development, NIST SP 800-53 control implementation review, continuous monitoring strategy, and ATO preparation for SaaS companies pursuing government contracts.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/privacy-and-data-protection-assessment.html" data-cat="grc" data-keywords="gdpr ccpa privacy data protection dpia impact assessment personal data breach notification consent">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=75&fit=crop" alt="Privacy and Data Protection Assessment" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">GRC</span>
+ <div class="svc-title">Privacy and Data Protection Assessment</div>
+ <p class="svc-desc">Security-side privacy assessment for GDPR or CCPA, data flow mapping, DPIA completion, data minimization controls, breach notification readiness, and consent management security.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/third-party-risk-management-program.html" data-cat="grc" data-keywords="vendor risk third party tprm questionnaire assessment supplier security tiering onboarding">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=75&fit=crop" alt="Third-Party Risk Management Program" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">GRC</span>
+ <div class="svc-title">Third-Party Risk Management Program</div>
+ <p class="svc-desc">Design and implement a TPRM program that scales, vendor tiering by data access and criticality, assessment templates by tier, review workflows, and ongoing monitoring.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/security-policy-and-standards-development.html" data-cat="grc" data-keywords="security policy standards procedures information security program governance policy framework isms">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=600&q=75&fit=crop" alt="Security Policy and Standards Development" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">GRC</span>
+ <div class="svc-title">Security Policy and Standards Development</div>
+ <p class="svc-desc">Develop or overhaul your information security policy framework, policy structure, executive-level policy, supporting standards, and procedures your team can actually follow.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/security-awareness-training-program.html" data-cat="training" data-keywords="security awareness training phishing compliance annual employee behavior change culture">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=75&fit=crop" alt="Security Awareness Training Program" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">TRAINING</span>
+ <div class="svc-title">Security Awareness Training Program</div>
+ <p class="svc-desc">Practical security awareness training built around your actual threat profile, not generic compliance videos. Covers phishing, social engineering, data handling, and incident reporting.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/executive-and-board-security-education.html" data-cat="training" data-keywords="executive leadership ciso board security training governance cyber risk decision making">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=75&fit=crop" alt="Executive and Board Security Education" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">TRAINING</span>
+ <div class="svc-title">Executive and Board Security Education</div>
+ <p class="svc-desc">Security fluency workshops for C-suite and board members, threat landscape briefings in plain language, governance responsibilities, and how to lead effectively during an incident.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/developer-secure-coding-workshop.html" data-cat="training" data-keywords="developer training secure coding owasp appsec engineering workshop hands-on labs ctf">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&q=75&fit=crop" alt="Developer Secure Coding Workshop" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">TRAINING</span>
+ <div class="svc-title">Developer Secure Coding Workshop</div>
+ <p class="svc-desc">Hands-on secure coding training for engineering teams, built around your actual tech stack and real vulnerability patterns from your codebase.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/incident-response-tabletop-exercise.html" data-cat="training" data-keywords="incident response tabletop exercise simulation leadership crisis ransomware breach insider">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&q=75&fit=crop" alt="Incident Response Tabletop Exercise" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">TRAINING</span>
+ <div class="svc-title">Incident Response Tabletop Exercise</div>
+ <p class="svc-desc">Facilitated IR tabletop exercise for security teams and leadership, custom scenarios built around your threat environment with a debrief and action plan.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/threat-intelligence-analyst-training.html" data-cat="training" data-keywords="cti cyber threat intelligence training analyst hunting stix taxii attck navigator threat actor">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=600&q=75&fit=crop" alt="Threat Intelligence Analyst Training" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">TRAINING</span>
+ <div class="svc-title">Threat Intelligence Analyst Training</div>
+ <p class="svc-desc">Practical training for security analysts on consuming, producing, and operationalizing threat intelligence. STIX/TAXII, ATT&CK Navigator, threat actor profiling, and CTI-to-detection workflows.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/siem-build-and-detection-engineering.html" data-cat="ops" data-keywords="siem build detection engineering log management rule correlation splunk elastic sentinel qradar">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1639322537228-f710d846310a?w=600&q=75&fit=crop" alt="SIEM Build and Detection Engineering" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">OPS</span>
+ <div class="svc-title">SIEM Build and Detection Engineering</div>
+ <p class="svc-desc">SIEM deployment, log source onboarding, detection rule development, and alert tuning: from architecture through go-live, with a detection library aligned to your actual threat model.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/soar-playbook-development.html" data-cat="ops" data-keywords="soar playbook automation response ticketing jira servicenow workflow enrichment containment palo cortex">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&q=75&fit=crop" alt="SOAR Playbook Development" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">OPS</span>
+ <div class="svc-title">SOAR Playbook Development</div>
+ <p class="svc-desc">Design and implementation of automated response playbooks, alert enrichment, ticket creation, containment actions, and escalation routing connecting detection to response.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/threat-hunting-program-and-engagements.html" data-cat="ops" data-keywords="threat hunting hypothesis driven proactive detection attacker behavior anomaly living off the land lolbas">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&q=75&fit=crop" alt="Threat Hunting Program and Engagements" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">OPS</span>
+ <div class="svc-title">Threat Hunting Program and Engagements</div>
+ <p class="svc-desc">Hypothesis-driven threat hunts across your environment, looking for attacker behaviors that alerting misses. We run the hunt, document findings, and leave behind a repeatable hunt playbook.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/incident-response-retainer.html" data-cat="ops" data-keywords="incident response retainer breach support forensics containment edr active incident named responder">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1557862921-37829c790f19?w=600&q=75&fit=crop" alt="Incident Response Retainer" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">OPS</span>
+ <div class="svc-title">Incident Response Retainer</div>
+ <p class="svc-desc">Pre-negotiated IR retainer with named responders, documented escalation procedures, and SLA-bound engagement start times for active incidents.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/vulnerability-management-program-design.html" data-cat="ops" data-keywords="vulnerability management program scanning prioritization sla tracking remediation workflow dashboard">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&q=75&fit=crop" alt="Vulnerability Management Program Design" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">OPS</span>
+ <div class="svc-title">Vulnerability Management Program Design</div>
+ <p class="svc-desc">From scan configuration through remediation SLA policy, ticketing integration, and executive dashboard, a vulnerability management program that closes risk rather than just generating reports.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/digital-forensics-and-incident-investigation.html" data-cat="ops" data-keywords="digital forensics incident investigation dfir timeline attacker ttp breach scope memory disk network">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=600&q=75&fit=crop" alt="Digital Forensics and Incident Investigation" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">OPS</span>
+ <div class="svc-title">Digital Forensics and Incident Investigation</div>
+ <p class="svc-desc">Post-incident forensic investigation to establish timeline, identify attacker TTPs, scope the breach, and produce an investigation report suitable for legal, regulatory, or insurance use.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/identity-architecture-review.html" data-cat="identity" data-keywords="identity access management sso saml oauth oidc idp directory federation mfa service account">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1548092372-0d1bd40894a3?w=600&q=75&fit=crop" alt="Identity Architecture Review" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">IDENTITY</span>
+ <div class="svc-title">Identity Architecture Review</div>
+ <p class="svc-desc">Review of your IAM architecture. SSO federation, directory integration, MFA coverage, privileged access model, and service account hygiene across SaaS, cloud, and on-premises.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/privileged-access-management-assessment.html" data-cat="identity" data-keywords="pam privileged access management cyberark beyondtrust just in time elevation vault session recording">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1555952517-2e8e729e0b44?w=600&q=75&fit=crop" alt="Privileged Access Management Assessment" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">IDENTITY</span>
+ <div class="svc-title">Privileged Access Management Assessment</div>
+ <p class="svc-desc">Assessment of how privileged accounts are managed, vault coverage, just-in-time elevation, session recording, emergency access procedures, and shared credential exposure.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/zero-trust-architecture-assessment.html" data-cat="identity" data-keywords="zero trust ztna conditional access microsegmentation never trust always verify maturity assessment">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?w=600&q=75&fit=crop" alt="Zero Trust Architecture Assessment" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">IDENTITY</span>
+ <div class="svc-title">Zero Trust Architecture Assessment</div>
+ <p class="svc-desc">Evaluation of your current environment against zero trust principles, identity verification coverage, device trust, network microsegmentation, and a maturity-based roadmap.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/joiner-mover-leaver-process-review.html" data-cat="identity" data-keywords="scim provisioning deprovisioning user lifecycle joiner mover leaver automation orphan account access review">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=75&fit=crop" alt="Joiner-Mover-Leaver Process Review" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">IDENTITY</span>
+ <div class="svc-title">Joiner-Mover-Leaver Process Review</div>
+ <p class="svc-desc">Audit and redesign of user provisioning and deprovisioning workflows, access accumulation, orphaned accounts, over-provisioned roles, and manual handoff gaps.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/data-classification-and-protection-assessment.html" data-cat="data" data-keywords="data security classification dlp loss prevention sensitive data protection encryption retention disposal">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=600&q=75&fit=crop" alt="Data Classification and Protection Assessment" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">DATA</span>
+ <div class="svc-title">Data Classification and Protection Assessment</div>
+ <p class="svc-desc">Assessment of how your org identifies, classifies, and protects sensitive data, data flow mapping, classification review, encryption coverage, DLP effectiveness, and retention controls.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/database-security-assessment.html" data-cat="data" data-keywords="database security sql nosql access control audit logging injection privilege encryption mysql postgres mongo">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=600&q=75&fit=crop" alt="Database Security Assessment" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">DATA</span>
+ <div class="svc-title">Database Security Assessment</div>
+ <p class="svc-desc">Security review of database environments, access control configuration, audit logging, privilege escalation paths, injection hardening, encryption at rest, and backup security.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/secrets-management-and-credential-hygiene.html" data-cat="data" data-keywords="secrets management vault api key rotation credential exposure scanning git hardcoded environment variable">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1507209696998-3c532be9b2b5?w=600&q=75&fit=crop" alt="Secrets Management and Credential Hygiene" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">DATA</span>
+ <div class="svc-title">Secrets Management and Credential Hygiene</div>
+ <p class="svc-desc">Assessment and remediation of secrets sprawl, scanning codebases and CI/CD for hardcoded credentials, designing secrets management architecture, and implementing rotation workflows.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/backup-and-recovery-security-review.html" data-cat="data" data-keywords="backup disaster recovery data protection ransomware resilience rpo rto immutability restore test">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1506399558188-acca6f8cbf41?w=600&q=75&fit=crop" alt="Backup and Recovery Security Review" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">DATA</span>
+ <div class="svc-title">Backup and Recovery Security Review</div>
+ <p class="svc-desc">Security assessment of backup and DR implementations, backup access controls, immutability verification, ransomware resilience testing, and RPO/RTO alignment.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/physical-security-assessment.html" data-cat="physical" data-keywords="physical security assessment cctv surveillance access control perimeter guard visitor management">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=75&fit=crop" alt="Physical Security Assessment" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">PHYSICAL</span>
+ <div class="svc-title">Physical Security Assessment</div>
+ <p class="svc-desc">On-site review of physical security controls, perimeter security, access control systems, CCTV coverage, visitor management, clean desk enforcement, and server room protection.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/data-center-and-server-room-security-review.html" data-cat="physical" data-keywords="data center security colocation cage access log environment control power cooling media disposal">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1600267185393-e158a98703de?w=600&q=75&fit=crop" alt="Data Center and Server Room Security Review" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">PHYSICAL</span>
+ <div class="svc-title">Data Center and Server Room Security Review</div>
+ <p class="svc-desc">Security review of data center or server room environments, physical access logging, cage and rack security, environmental monitoring, media disposal controls, and audit trail completeness.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/insider-threat-program-design.html" data-cat="physical" data-keywords="insider threat program user behavior analytics uba monitoring access review detection response policy">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1453738773917-9c3eff1db985?w=600&q=75&fit=crop" alt="Insider Threat Program Design" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">PHYSICAL</span>
+ <div class="svc-title">Insider Threat Program Design</div>
+ <p class="svc-desc">Design and implement an insider threat program, user behavior analytics, access review processes, monitoring policy, and response procedures aligned with legal and HR requirements.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/satellite-ground-station-security-assessment.html" data-cat="satellite" data-keywords="satellite ground station security teleport command control uplink downlink network segmentation space">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=600&q=75&fit=crop" alt="Satellite Ground Station Security Assessment" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">SATELLITE</span>
+ <div class="svc-title">Satellite Ground Station Security Assessment</div>
+ <p class="svc-desc">Security assessment of satellite ground station infrastructure, teleport facility security, command and control systems, uplink/downlink security, and network segmentation between ground and IT.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/satellite-command-and-control-security.html" data-cat="satellite" data-keywords="satellite command control c2 authentication encryption replay protection jamming spoofing telemetry on-orbit">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1457364887197-9150188c107b?w=600&q=75&fit=crop" alt="Satellite Command and Control Security" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">SATELLITE</span>
+ <div class="svc-title">Satellite Command and Control Security</div>
+ <p class="svc-desc">Security assessment of the command and control (C2) channel between ground stations and on-orbit assets, authentication, encryption, replay protection, and jamming/spoofing resilience.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/vsat-and-satellite-internet-security-assessment.html" data-cat="satellite" data-keywords="vsat satellite internet terminal hub network security traffic interception remote management configuration">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?w=600&q=75&fit=crop" alt="VSAT and Satellite Internet Security Assessment" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">SATELLITE</span>
+ <div class="svc-title">VSAT and Satellite Internet Security Assessment</div>
+ <p class="svc-desc">Security assessment of VSAT terminals and satellite internet infrastructure, terminal configuration hardening, traffic interception feasibility, and remote management security.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/gps-and-navigation-signal-security-assessment.html" data-cat="satellite" data-keywords="gps gnss spoofing jamming navigation timing signal security receiver infrastructure pnt">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1476973422084-e0fa66ff9456?w=600&q=75&fit=crop" alt="GPS and Navigation Signal Security Assessment" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">SATELLITE</span>
+ <div class="svc-title">GPS and Navigation Signal Security Assessment</div>
+ <p class="svc-desc">Security assessment of GPS and GNSS receiver implementations, spoofing feasibility, jamming resilience, multi-constellation validation, and timing security for critical infrastructure.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/space-system-threat-modeling.html" data-cat="satellite" data-keywords="space system threat model on-orbit ground segment link user segment adversary attack surface satellite">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1454789548928-9efd52dc4031?w=600&q=75&fit=crop" alt="Space System Threat Modeling" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">SATELLITE</span>
+ <div class="svc-title">Space System Threat Modeling</div>
+ <p class="svc-desc">Comprehensive threat modeling of space system architecture, covering on-orbit segment, ground segment, link, and user segment attack surfaces with adversary-specific threat scenarios.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/satellite-rf-downlink-interception-assessment.html" data-cat="satellite" data-keywords="satellite downlink interception signal capture decode plaintext encryption rf eavesdropping surveillance">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=600&q=75&fit=crop" alt="Satellite RF Downlink Interception Assessment" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">SATELLITE</span>
+ <div class="svc-title">Satellite RF Downlink Interception Assessment</div>
+ <p class="svc-desc">Assessment of the feasibility of intercepting and decoding satellite downlink signals, for operators assessing whether their data transmissions can be captured and read by ground-based adversaries.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/cryptographic-implementation-review.html" data-cat="crypto" data-keywords="cryptography implementation review algorithm key management rng tls ssl certificate cipher protocol">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?w=600&q=75&fit=crop" alt="Cryptographic Implementation Review" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">CRYPTO</span>
+ <div class="svc-title">Cryptographic Implementation Review</div>
+ <p class="svc-desc">Assessment of cryptographic implementations in your applications and infrastructure, algorithm selection, key management, random number generation, and protocol configuration.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/pki-design-and-implementation-review.html" data-cat="crypto" data-keywords="pki public key infrastructure ca certificate authority hierarchy certificate policy crl ocsp key ceremony lifecycle">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=600&q=75&fit=crop" alt="PKI Design and Implementation Review" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">CRYPTO</span>
+ <div class="svc-title">PKI Design and Implementation Review</div>
+ <p class="svc-desc">Design review or assessment of your Public Key Infrastructure. CA hierarchy, certificate policies, CRL/OCSP configuration, key ceremony procedures, and lifecycle management.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/post-quantum-cryptography-readiness.html" data-cat="crypto" data-keywords="post quantum cryptography pqc nist kyber dilithium migration quantum computer rsa ecc vulnerability">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1534723452862-4c874018d66d?w=600&q=75&fit=crop" alt="Post-Quantum Cryptography Readiness" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">CRYPTO</span>
+ <div class="svc-title">Post-Quantum Cryptography Readiness</div>
+ <p class="svc-desc">Assessment of your cryptographic inventory against post-quantum threats, identifying algorithms vulnerable to quantum attack and a migration roadmap to NIST PQC standards.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/automotive-ecu-and-can-bus-security.html" data-cat="automotive" data-keywords="automotive ecu can bus security vehicle hacking obd2 diagnostic interface firmware ota update iso sae">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&q=75&fit=crop" alt="Automotive ECU and CAN Bus Security" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">AUTOMOTIVE</span>
+ <div class="svc-title">Automotive ECU and CAN Bus Security</div>
+ <p class="svc-desc">Security assessment of vehicle electronic control units and CAN bus communications, message injection, ECU firmware extraction, diagnostic interface exploitation, and OTA update security.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/vehicle-telematics-and-connectivity-security.html" data-cat="automotive" data-keywords="vehicle telematics connected car cellular cloud backend remote command authentication data privacy ota">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=600&q=75&fit=crop" alt="Vehicle Telematics and Connectivity Security" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">AUTOMOTIVE</span>
+ <div class="svc-title">Vehicle Telematics and Connectivity Security</div>
+ <p class="svc-desc">Security assessment of connected vehicle telematics units, cellular connectivity, cloud backend, remote command authentication, data privacy, and OTA update security.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/ss7-and-telecom-protocol-security-assessment.html" data-cat="telecom" data-keywords="ss7 diameter sip telecom protocol security assessment location tracking call interception sms 2fa bypass">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=600&q=75&fit=crop" alt="SS7 and Telecom Protocol Security Assessment" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">TELECOM</span>
+ <div class="svc-title">SS7 and Telecom Protocol Security Assessment</div>
+ <p class="svc-desc">Security assessment of SS7, Diameter, and SIP protocol implementations, location tracking exposure, call interception feasibility, SMS interception, and network element security.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <a class="svc-card-link" href="svc/voip-and-sip-infrastructure-security.html" data-cat="telecom" data-keywords="voip sip asterisk freepbx pbx toll fraud call eavesdropping media encryption rtp srtp">
+ <div class="svc-card">
+ <img class="svc-img" src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?w=600&q=75&fit=crop" alt="VoIP and SIP Infrastructure Security" loading="lazy" />
+ <div class="svc-body">
+ <span class="svc-tag">TELECOM</span>
+ <div class="svc-title">VoIP and SIP Infrastructure Security</div>
+ <p class="svc-desc">Security assessment of VoIP infrastructure. SIP configuration, authentication weaknesses, toll fraud exposure, call eavesdropping feasibility, and media encryption coverage.</p>
+ <span class="svc-expand-btn">View details →</span>
+ </div>
+ </div>
+ </a>
+ <div id="no-results"><p>No services match your search.</p></div>
+ </div>
+</div>
+
+<div id="footer-slot"></div>
+<script src="nav.js"></script>
+<script>
+let currentFilter = 'all';
+function setFilter(cat, btn) {
+ currentFilter = cat;
+ document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+ if(btn) btn.classList.add('active');
+ filterCards();
+}
+function filterCards() {
+ const q = (document.getElementById('search-input').value || '').toLowerCase();
+ let count = 0;
+ document.querySelectorAll('.svc-card-link').forEach(link => {
+ const cat = link.dataset.cat;
+ const kw = (link.dataset.keywords || '').toLowerCase();
+ const title = (link.querySelector('.svc-title')?.textContent || '').toLowerCase();
+ const desc = (link.querySelector('.svc-desc')?.textContent || '').toLowerCase();
+ const catMatch = currentFilter === 'all' || cat === currentFilter;
+ const textMatch = !q || title.includes(q) || desc.includes(q) || kw.includes(q);
+ const show = catMatch && textMatch;
+ link.style.display = show ? '' : 'none';
+ if(show) count++;
+ });
+ document.getElementById('visible-count').textContent = count;
+ document.getElementById('no-results').style.display = count === 0 ? '' : 'none';
+}
+document.addEventListener('DOMContentLoaded', filterCards);
+</script>
+</body>
+</html>

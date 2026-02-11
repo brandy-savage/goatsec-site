@@ -1,0 +1,29 @@
+:root {
+  /* GoatSec Variant 8 (Sand background) — tokenized */
+  --gs-bg: #CBBEAA;
+  --gs-text: #1f110b;
+  --gs-muted: #3a1e12;
+
+  --gs-surface: rgba(255,255,255,0.78);
+  --gs-surface-strong: rgba(255,255,255,0.92);
+  --gs-surface-soft: rgba(255,255,255,0.62);
+
+  --gs-line: rgba(31,17,11,0.14);
+  --gs-line-strong: rgba(31,17,11,0.22);
+
+  --gs-accent: #8e6235;
+  --gs-accent-2: #d2b126;
+
+  --gs-font-sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  --gs-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --gs-r-xl: 22px;
+  --gs-r-lg: 18px;
+  --gs-r-md: 14px;
+  --gs-r-sm: 10px;
+
+  --gs-shadow-card: 0 16px 34px rgba(31,17,11,0.14);
+  --gs-shadow-float: 0 22px 48px rgba(31,17,11,0.18);
+
+  --gs-max: 1140px;
+}

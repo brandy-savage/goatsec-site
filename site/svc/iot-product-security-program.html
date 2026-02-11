@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+ <title>IoT Product Security Program | GoatSec</title>
+ <meta name="description" content="Security program design for organizations building connected products, secure boot, code signing, OTA update security, data minimization, and a product security disclosure policy." />
+ <link rel="stylesheet" href="../shared.css" />
+ <style>
+ .svc-hero{position:relative;overflow:hidden;border-radius:var(--r-xl);margin-bottom:32px}
+ .svc-hero img{width:100%;height:320px;object-fit:cover;display:block}
+ .svc-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(31,16,9,.7) 0%,transparent 60%);display:flex;align-items:flex-end;padding:32px}
+ .svc-hero-text{color:#fff}
+ .svc-hero-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);background:rgba(255,255,255,.15);backdrop-filter:blur(8px);padding:4px 12px;border-radius:999px;display:inline-block;margin-bottom:10px}
+ .svc-hero-title{font-size:clamp(24px,3.5vw,40px);font-weight:800;line-height:1.1;margin-bottom:8px}
+ .svc-hero-desc{font-size:15px;opacity:.9;max-width:60ch;line-height:1.6}
+
+ .svc-content{display:grid;grid-template-columns:1fr 320px;gap:32px;margin-bottom:48px}
+ @media(max-width:800px){.svc-content{grid-template-columns:1fr}}
+
+ .svc-main{display:flex;flex-direction:column;gap:28px}
+ .svc-section-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:10px}
+ .svc-section p,.svc-section li{font-size:14px;line-height:1.65;color:var(--text-2)}
+ .svc-section ul{list-style:none;display:flex;flex-direction:column;gap:8px;padding:0}
+ .svc-section li{padding-left:20px;position:relative}
+ .svc-section li::before{content:"✦";position:absolute;left:0;color:var(--accent);font-size:10px;top:3px}
+
+ .svc-sidebar{display:flex;flex-direction:column;gap:20px}
+ .svc-sidebar-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px}
+ .svc-sidebar-card h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:12px}
+
+ .svc-tags{display:flex;gap:6px;flex-wrap:wrap}
+ .svc-tag-pill{font-size:11px;padding:4px 10px;border-radius:999px;background:var(--surface-mid);border:1px solid var(--line);color:var(--text-2)}
+
+ .svc-cta-box{background:var(--surface);border:2px solid var(--accent);border-radius:var(--r-xl);padding:32px;text-align:center;margin:32px 0 48px}
+ .svc-cta-box h3{font-size:22px;font-weight:700;margin-bottom:8px}
+ .svc-cta-box p{font-size:14px;color:var(--text-muted);margin-bottom:18px;max-width:50ch;margin-left:auto;margin-right:auto}
+ .svc-cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+ .svc-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--text-muted);margin-bottom:20px;transition:color .15s}
+ .svc-back:hover{color:var(--accent)}
+ </style>
+ <link rel="icon" sizes="32x32" href="../favicon-32.png" />
+ <link rel="icon" sizes="192x192" href="../favicon-192.png" />
+ <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+</head>
+<body>
+<div id="nav-slot"></div>
+
+<div class="wrap" style="padding-top:32px">
+ <a href="../services.html" class="svc-back">← Back to All Services</a>
+
+ <div class="svc-hero">
+ <img src="https://images.unsplash.com/photo-1556155092-490a1ba16284?w=600&q=75&fit=crop" alt="IoT Product Security Program" />
+ <div class="svc-hero-overlay">
+ <div class="svc-hero-text">
+ <span class="svc-hero-tag">HARDWARE</span>
+ <h1 class="svc-hero-title">IoT Product Security Program</h1>
+ <p class="svc-hero-desc">Security program design for organizations building connected products, secure boot, code signing, OTA update security, data minimization, and a product security disclosure policy.</p>
+ </div>
+ </div>
+ </div>
+
+ <div class="svc-content">
+ <div class="svc-main">
+ <div class="svc-section">
+ <div class="svc-section-label">Best for</div>
+ <p>Consumer electronics manufacturers, medical device companies, industrial IoT vendors, and any organization building connected products for sale or deployment.</p>
+ </div>
+ <div class="svc-section">
+ <div class="svc-section-label">What we deliver</div>
+ <ul><li>Product security policy document</li><li>Secure boot implementation guidance</li><li>Code signing key management procedures</li><li>OTA update security architecture</li><li>Vulnerability disclosure policy (VDP) template</li><li>Security requirement checklist for new products</li></ul>
+ </div>
+ <div class="svc-section">
+ <div class="svc-section-label">How we work</div>
+ <ul><li>Interview product and engineering teams on current security controls</li><li>Gap analysis against ETSI EN 303 645 or NIST IoT cybersecurity guidance</li><li>Design secure boot and code signing architecture</li><li>OTA update threat model</li><li>VDP policy drafting and review</li></ul>
+ </div>
+ </div>
+ <div class="svc-sidebar">
+ <div class="svc-sidebar-card">
+ <h4>Timeline</h4>
+ <span class="timeline-pill">⏱ 3–6 weeks</span>
+ </div>
+ <div class="svc-sidebar-card">
+ <h4>Tools &amp; Frameworks</h4>
+ <div class="svc-tags"><span class="svc-tag-pill">ETSI EN 303 645</span><span class="svc-tag-pill">NIST 8259A</span><span class="svc-tag-pill">SBOM tooling</span><span class="svc-tag-pill">secure element guidance</span><span class="svc-tag-pill">key management HSM recommendations</span></div>
+ </div>
+ </div>
+ </div>
+
+ <div class="svc-cta-box">
+ <h3>Curious if this is the right fit?</h3>
+ <p>Let's talk it through. No pressure, no jargon, no commitment, just a straightforward conversation about what you're dealing with.</p>
+ <div class="svc-cta-row">
+ <a class="btn btn-accent" href="../contact.html?svc=iot-program">Book a Scope Call →</a>
+ <a class="btn btn-outline" href="../packages.html">See Packages</a>
+ </div>
+ </div>
+</div>
+
+<div id="footer-slot"></div>
+<script src="../nav.js"></script>
+</body>
+</html>

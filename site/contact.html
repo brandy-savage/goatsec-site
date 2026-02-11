@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+ <title>Book a Scope Call | GoatSec</title>
+ <meta name="description" content="Book a 15-minute scope call with GoatSec. Describe the problem. We propose scope and the smallest useful next step." />
+ <link rel="stylesheet" href="shared.css" />
+ <link rel="icon" sizes="32x32" href="favicon-32.png" />
+ <link rel="icon" sizes="192x192" href="favicon-192.png" />
+ <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+<body>
+<div id="nav-slot"></div>
+
+<div class="wrap">
+ <div class="hero-wrap">
+ <div class="hero-inner">
+ <div class="hero-content" style="padding:56px 48px">
+ <div class="eyebrow">Contact</div>
+ <h1 class="h1">Fast scope. No games. Real next steps.</h1>
+ <p class="lead">15 minutes. You bring the problem. We propose scope, the right package, and the smallest useful action. No bloated proposals, no sales cycle theater.</p>
+ <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
+ <a class="btn btn-accent" href="mailto:goat@goatinfosec.com">goat@goatinfosec.com</a>
+ <a class="btn" href="tel:+15055467310">505-546-7310</a>
+ </div>
+ </div>
+ <div class="hero-photo">
+ <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900&q=80&fit=crop" alt="Professional consultation and scope discussion" />
+ </div>
+ </div>
+ </div>
+</div>
+
+<section class="section">
+ <div class="wrap">
+ <div class="split" style="gap:56px;align-items:start">
+
+ <!-- FORM -->
+ <div>
+ <div class="eyebrow">Get started</div>
+ <h2 class="h2" style="margin-bottom:28px">Tell us about your situation.</h2>
+ <form class="form" onsubmit="handleSubmit(event)">
+ <div class="row">
+ <div class="field">
+ <label>First name</label>
+ <input type="text" placeholder="Jane" required />
+ </div>
+ <div class="field">
+ <label>Last name</label>
+ <input type="text" placeholder="Smith" required />
+ </div>
+ </div>
+ <div class="field">
+ <label>Work email</label>
+ <input type="email" placeholder="jane@yourcompany.com" required />
+ </div>
+ <div class="field">
+ <label>Phone (optional)</label>
+ <input type="tel" placeholder="555-555-5555" />
+ </div>
+ <div class="field">
+ <label>Your title</label>
+ <input type="text" placeholder="CISO, VP Security, Head of Security, etc." />
+ </div>
+ <div class="field">
+ <label>Organization size</label>
+ <select>
+ <option value="" disabled selected>Select a range</option>
+ <option>Fewer than 50 employees</option>
+ <option>50 to 200 employees</option>
+ <option>200 to 500 employees</option>
+ <option>500 to 2,000 employees</option>
+ <option>2,000 to 10,000 employees</option>
+ <option>More than 10,000 employees</option>
+ </select>
+ </div>
+ <div class="field">
+ <label>What's the primary challenge you're trying to solve?</label>
+ <select>
+ <option value="" disabled selected>Choose the closest match</option>
+ <option>Tool selection or vendor evaluation</option>
+ <option>Integration or deployment that isn't done</option>
+ <option>AppSec program or SDLC gaps</option>
+ <option>Cloud security posture review</option>
+ <option>AI or LLM security risk</option>
+ <option>Vulnerability management program</option>
+ <option>GRC, audit preparation, or compliance</option>
+ <option>Incident response readiness</option>
+ <option>Ongoing security execution support</option>
+ <option>Security training for team or leadership</option>
+ <option>Staff augmentation or curated talent</option>
+ <option>Something not on this list</option>
+ </select>
+ </div>
+ <div class="field">
+ <label>Timeline pressure</label>
+ <select>
+ <option value="" disabled selected>When does this need to move?</option>
+ <option>We need to start this week or next</option>
+ <option>This quarter</option>
+ <option>Next quarter</option>
+ <option>No hard deadline, exploring options</option>
+ </select>
+ </div>
+ <div class="field">
+ <label>Any context that would help us prepare for the call</label>
+ <textarea rows="4" placeholder="Industry, existing tools, team size, audit deadlines, anything relevant, the more we know before the call, the faster we can get to a useful recommendation."></textarea>
+ </div>
+ <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:4px">
+ <button type="submit" class="btn btn-accent">Submit and request a scope call</button>
+ <span class="small">We respond within one business day.</span>
+ </div>
+ <div id="success-msg" style="display:none;padding:16px 20px;background:rgba(42,138,74,.12);border:1px solid rgba(42,138,74,.25);border-radius:var(--r-md);color:#1e6b38;font-size:14px">
+ Got it, we'll be in touch within one business day to confirm a time.
+ </div>
+ </form>
+ </div>
+
+ <!-- SIDEBAR -->
+ <div style="display:flex;flex-direction:column;gap:16px;padding-top:52px">
+ <div class="card card-warm">
+ <div class="label" style="margin-bottom:14px">What to expect</div>
+ <div class="steps">
+ <div class="step" style="padding:14px 0">
+ <div class="step-num" style="width:32px;height:32px;font-size:13px">1</div>
+ <div>
+ <div class="h4">Submit your information</div>
+ <p class="small">We confirm receipt and suggest two or three available times within one business day.</p>
+ </div>
+ </div>
+ <div class="step" style="padding:14px 0">
+ <div class="step-num" style="width:32px;height:32px;font-size:13px">2</div>
+ <div>
+ <div class="h4">15-minute scope call</div>
+ <p class="small">You describe the situation. We ask the questions that help us understand scope and constraints. No pitch, no demo.</p>
+ </div>
+ </div>
+ <div class="step" style="padding:14px 0;border-bottom:none">
+ <div class="step-num" style="width:32px;height:32px;font-size:13px">3</div>
+ <div>
+ <div class="h4">Scope proposal</div>
+ <p class="small">We send a proposed scope, package recommendation, and honest timeline. You decide if and when to move forward.</p>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <div class="card">
+ <div class="label" style="margin-bottom:10px">Before the call</div>
+ <p class="small" style="margin-bottom:0">We'll send a mutual NDA for review within 24 hours of your request. Signing before the call isn't required, but it's available if your organization prefers it.</p>
+ </div>
+
+ <div class="card">
+ <div class="label" style="margin-bottom:10px">Direct contact</div>
+ <p class="small" style="margin-bottom:12px">Prefer to skip the form? Reach us directly. Use the same context you'd put in the form and we'll treat it exactly the same way.</p>
+ <div style="display:flex;flex-direction:column;gap:8px">
+ <a class="btn btn-sm" href="mailto:goat@goatinfosec.com" style="justify-content:flex-start">📧 goat@goatinfosec.com</a>
+ <a class="btn btn-sm" href="tel:+15055467310" style="justify-content:flex-start">📱 505-546-7310</a>
+ </div>
+ </div>
+
+ <div class="card card-soft">
+ <div class="label" style="margin-bottom:10px">Not sure which package fits?</div>
+ <p class="small">That's what the scope call is for. Come with the problem, not a package in mind. We'll recommend what makes sense after we understand the situation.</p>
+ </div>
+ </div>
+
+ </div>
+ </div>
+</section>
+
+<div id="footer-slot"></div>
+<script src="nav.js"></script>
+<script>
+function handleSubmit(e){
+ e.preventDefault();
+ const btn = e.target.querySelector('button[type=submit]');
+ btn.textContent = 'Submitted';
+ btn.disabled = true;
+ btn.style.opacity = '0.6';
+ document.getElementById('success-msg').style.display = 'block';
+ e.target.scrollIntoView({behavior:'smooth', block:'end'});
+}
+</script>
+</body>
+</html>

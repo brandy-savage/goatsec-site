@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+ <title>Proof | GoatSec</title>
+ <meta name="description" content="How GoatSec structures reports, what artifacts look like, and the credibility signals that demonstrate real security execution." />
+ <link rel="stylesheet" href="shared.css" />
+ <link rel="icon" sizes="32x32" href="favicon-32.png" />
+ <link rel="icon" sizes="192x192" href="favicon-192.png" />
+ <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+<body>
+<div id="nav-slot"></div>
+
+<div class="wrap">
+ <div class="hero-wrap">
+ <div class="hero-inner">
+ <div class="hero-content">
+ <div class="eyebrow">Proof</div>
+ <h1 class="h1">Outcomes, artifacts, and how we report.</h1>
+ <p class="lead">Every engagement we run produces something concrete. Here's what our deliverables look like, how we structure reporting, and the artifact standards we hold ourselves to.</p>
+ <div class="hero-actions">
+ <a class="btn btn-accent" href="contact.html">Request sample artifacts</a>
+ <a class="btn" href="packages.html">See our packages</a>
+ </div>
+ </div>
+ <div class="hero-photo">
+ <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80&fit=crop" alt="Security reporting and documentation" />
+ </div>
+ </div>
+ </div>
+</div>
+
+<!-- CASE STUDIES -->
+<section class="section">
+ <div class="wrap">
+ <div class="eyebrow">Case studies</div>
+ <h2 class="h2">Real situations, real outcomes.</h2>
+ <p class="lead" style="margin-bottom:40px">We don't publish client names without permission, but we can walk through the structure of engagements we've run, the problem, the approach, the deliverables, and what changed.</p>
+ <div class="g3">
+ <div class="card card-photo">
+ <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&q=80&fit=crop" alt="Tool evaluation and vendor comparison" />
+ <div class="card-body">
+ <div class="badge" style="margin-bottom:14px">Vendor Enablement</div>
+ <div class="h3">Tool sprawl to a consolidated stack</div>
+ <p class="body" style="margin-bottom:14px">A mid-market fintech was running seven overlapping security tools with three different SIEM instances and no coherent detection strategy. We ran a full portfolio evaluation, produced a consolidation roadmap, and managed the vendor negotiations that eliminated two contracts at renewal while improving coverage.</p>
+ <div class="label" style="margin-bottom:8px">Key artifacts delivered</div>
+ <ul style="display:flex;flex-direction:column;gap:4px;list-style:none">
+ <li class="small">✦ Tool inventory and capability overlap analysis</li>
+ <li class="small">✦ Evaluation rubric and scoring documentation</li>
+ <li class="small">✦ Consolidation roadmap with estimated cost savings</li>
+ <li class="small">✦ Negotiation brief for each renewal conversation</li>
+ </ul>
+ </div>
+ </div>
+
+ <div class="card card-photo">
+ <img src="https://images.unsplash.com/photo-1542903660-eedba2cda473?w=600&q=80&fit=crop" alt="Application security program development" />
+ <div class="card-body">
+ <div class="badge" style="margin-bottom:14px">AppSec</div>
+ <div class="h3">AppSec program lift for a growing startup</div>
+ <p class="body" style="margin-bottom:14px">A Series B startup with 40 engineers and no formal AppSec program needed to pass a SOC 2 audit in four months. We ran an ASVS assessment, designed their secure SDLC, implemented gates in their CI/CD pipeline, and built the evidence package their auditor needed.</p>
+ <div class="label" style="margin-bottom:8px">Key artifacts delivered</div>
+ <ul style="display:flex;flex-direction:column;gap:4px;list-style:none">
+ <li class="small">✦ ASVS gap report with sprint-ready remediation backlog</li>
+ <li class="small">✦ Secure SDLC gate policy and CI/CD integration docs</li>
+ <li class="small">✦ SOC 2 evidence package for security control testing</li>
+ <li class="small">✦ Developer security training materials</li>
+ </ul>
+ </div>
+ </div>
+
+ <div class="card card-photo">
+ <img src="https://images.unsplash.com/photo-1606660265514-358ebbadc80d?w=600&q=80&fit=crop" alt="Incident response preparation" />
+ <div class="card-body">
+ <div class="badge" style="margin-bottom:14px">Incident Readiness</div>
+ <div class="h3">IR readiness for a regulated healthcare company</div>
+ <p class="body" style="margin-bottom:14px">A healthcare organization with HIPAA obligations had never run a tabletop exercise. We designed and facilitated a four-scenario tabletop, identified three critical gaps in their escalation path, built playbooks for each gap, and produced an after-action report with a 90-day remediation plan.</p>
+ <div class="label" style="margin-bottom:8px">Key artifacts delivered</div>
+ <ul style="display:flex;flex-direction:column;gap:4px;list-style:none">
+ <li class="small">✦ Tabletop scenario scripts and facilitation guide</li>
+ <li class="small">✦ IR playbooks for ransomware, data breach, and insider threat</li>
+ <li class="small">✦ Escalation matrix and communication templates</li>
+ <li class="small">✦ After-action report with 90-day remediation roadmap</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<hr class="divider" />
+
+<!-- REPORT STRUCTURE -->
+<section class="section section-alt">
+ <div class="wrap">
+ <div class="eyebrow">Reporting standards</div>
+ <h2 class="h2">What every deliverable from GoatSec contains.</h2>
+ <p class="lead" style="margin-bottom:40px">We hold ourselves to a consistent reporting standard across every engagement type. No mystery, no inconsistency. Here's exactly what you get.</p>
+ <div class="g2" style="gap:24px">
+ <div class="card card-warm">
+ <div class="label" style="margin-bottom:14px">Assessment report structure</div>
+ <div class="codeblock" style="white-space:pre-wrap;overflow-x:auto">1. Executive Summary
+ One to two pages, plain language, board-ready.
+ Risk posture, key findings, and recommended actions.
+
+2. Scope and Methodology
+ What was reviewed, how, and what inputs were used.
+
+3. Findings Catalog
+ Each finding: severity, business impact, evidence,
+ and recommended remediation action.
+
+4. Risk-Prioritized Remediation Roadmap
+ Sprint-ready backlog ordered by risk and effort.
+ Includes owner suggestions and dependencies.
+
+5. Success Metrics
+ How we measure whether remediation worked.
+
+6. Appendix
+ Evidence references, tool versions, scan configurations.
+ </div>
+ </div>
+ <div>
+ <div class="card card-warm" style="margin-bottom:16px">
+ <div class="label" style="margin-bottom:14px">Integration handoff package</div>
+ <ul style="display:flex;flex-direction:column;gap:10px;list-style:none">
+ <li class="body">✦ Reference architecture diagram as-built</li>
+ <li class="body">✦ Configuration baseline with annotated reasoning</li>
+ <li class="body">✦ Test results and validation evidence</li>
+ <li class="body">✦ Operational runbook with day-one operating instructions</li>
+ <li class="body">✦ Known limitations and maintenance notes</li>
+ <li class="body">✦ Rollback procedure with data safety guarantees</li>
+ </ul>
+ </div>
+ <div class="card card-warm">
+ <div class="label" style="margin-bottom:14px">Artifact library standards</div>
+ <ul style="display:flex;flex-direction:column;gap:10px;list-style:none">
+ <li class="body">✦ Engagement one-pager: scope clarity document before work begins</li>
+ <li class="body">✦ Tool selection rubric: scoring documentation for vendor evaluation</li>
+ <li class="body">✦ Executive KPI dashboard specification: what to track and why</li>
+ <li class="body">✦ Policy templates: review-ready drafts your team can customize</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<hr class="divider" />
+
+<!-- PHOTO STRIP -->
+<section class="section">
+ <div class="wrap">
+ <div class="photo-strip">
+ <img src="https://images.unsplash.com/photo-1590650516494-0c8e4a4dd67e?w=600&q=80&fit=crop" alt="Security work and collaboration" />
+ <img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=600&q=80&fit=crop" alt="Team working together" />
+ <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80&fit=crop" alt="Security review session" />
+ </div>
+ </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ARTIFACT SAMPLES -->
+<section class="section section-alt">
+ <div class="wrap">
+ <div class="eyebrow">Artifact samples</div>
+ <h2 class="h2">What "done" looks like from GoatSec.</h2>
+ <p class="lead" style="margin-bottom:40px">The best way to evaluate our work is to see examples. Reach out with your engagement type and we'll send representative samples under NDA.</p>
+ <div class="g4">
+ <div class="card" style="text-align:center">
+ <div style="font-size:32px;margin-bottom:12px">📋</div>
+ <div class="h4">Assessment report</div>
+ <p class="small">Sample findings page and executive summary from an AppSec assessment.</p>
+ <a class="btn btn-sm" href="contact.html" style="margin-top:14px;width:100%;justify-content:center">Request sample</a>
+ </div>
+ <div class="card" style="text-align:center">
+ <div style="font-size:32px;margin-bottom:12px">🗂️</div>
+ <div class="h4">Remediation roadmap</div>
+ <p class="small">Sprint-formatted backlog from a vulnerability management engagement.</p>
+ <a class="btn btn-sm" href="contact.html" style="margin-top:14px;width:100%;justify-content:center">Request sample</a>
+ </div>
+ <div class="card" style="text-align:center">
+ <div style="font-size:32px;margin-bottom:12px">🔌</div>
+ <div class="h4">Integration runbook</div>
+ <p class="small">Operational runbook from a SIEM integration including rollback procedure.</p>
+ <a class="btn btn-sm" href="contact.html" style="margin-top:14px;width:100%;justify-content:center">Request sample</a>
+ </div>
+ <div class="card" style="text-align:center">
+ <div style="font-size:32px;margin-bottom:12px">📊</div>
+ <div class="h4">Board-ready summary</div>
+ <p class="small">One-page executive summary from a cloud security posture review.</p>
+ <a class="btn btn-sm" href="contact.html" style="margin-top:14px;width:100%;justify-content:center">Request sample</a>
+ </div>
+ </div>
+ </div>
+</section>
+
+<section class="section">
+ <div class="wrap">
+ <div class="cta-band">
+ <div class="eyebrow" style="justify-content:center;margin-bottom:16px">See it for yourself</div>
+ <h2 class="h2">Request samples or book a scope call.</h2>
+ <p class="lead">We'll send representative samples for your engagement type under NDA, or we can walk through our approach live in 15 minutes.</p>
+ <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+ <a class="btn btn-accent" href="contact.html">Book a scope call</a>
+ <a class="btn" href="mailto:goat@goatinfosec.com">Request samples by email</a>
+ </div>
+ </div>
+ </div>
+</section>
+
+<div id="footer-slot"></div>
+<script src="nav.js"></script>
+</body>
+</html>

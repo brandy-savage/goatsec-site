@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+ <title>Resources GoatSec</title>
+ <meta name="description" content="Security playbooks, reporting standards, and answers to common procurement questions. Everything you need to evaluate GoatSec and move a project forward." />
+ <link rel="stylesheet" href="shared.css" />
+ <link rel="icon" sizes="32x32" href="favicon-32.png" />
+ <link rel="icon" sizes="192x192" href="favicon-192.png" />
+ <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+<body>
+<div id="nav-slot"></div>
+
+<div class="wrap">
+ <div class="hero-wrap" style="background:linear-gradient(160deg,rgba(255,255,255,.72) 0%,rgba(255,248,232,.56) 100%)">
+ <div class="hero-content" style="padding:56px 48px">
+ <div class="eyebrow">Resources</div>
+ <h1 class="h1">Playbooks, reporting standards, and straight answers.</h1>
+ <p class="lead">Everything a security leader needs to evaluate GoatSec, build a business case for an engagement, and answer procurement questions before they become a blocker. No gated content, no form walls.</p>
+ <div class="hero-actions" style="margin-top:28px">
+ <a class="btn btn-accent" href="#playbooks">Playbooks</a>
+ <a class="btn" href="#reporting">Reporting standards</a>
+ <a class="btn btn-outline" href="#faq">FAQ</a>
+ </div>
+ </div>
+ </div>
+</div>
+
+<!-- PLAYBOOKS -->
+<section class="section" id="playbooks">
+ <div class="wrap">
+ <div class="eyebrow">Playbooks</div>
+ <h2 class="h2">Structured approaches to the problems we see most often.</h2>
+ <p class="lead" style="margin-bottom:40px">These are distillations of how GoatSec approaches common engagements, not marketing copy, but honest breakdowns of the process, the decision points, and what makes the difference between a successful outcome and a wasted engagement.</p>
+
+ <div class="g2" style="gap:20px">
+
+ <div class="card">
+ <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px">
+ <div class="badge">AppSec</div>
+ <span class="small" style="color:var(--text-muted)">4 min read</span>
+ </div>
+ <div class="h3">How to scope an AppSec assessment that actually gets acted on</div>
+ <p class="body" style="margin-bottom:14px">Most AppSec assessments generate reports that sit in a shared drive. This playbook covers what separates assessments that drive remediation from the ones that don't starting with how you scope them.</p>
+ <div class="card card-soft" style="padding:14px 16px;margin-bottom:16px">
+ <div class="label" style="margin-bottom:8px">Key decision points</div>
+ <ul style="display:flex;flex-direction:column;gap:6px;list-style:none">
+ <li class="small">✦ Set the output format before scoping starts report for auditors vs backlog for engineers vs executive summary for the board each require different engagement designs</li>
+ <li class="small">✦ Get engineering team buy-in before the assessment, not after they need to own the findings</li>
+ <li class="small">✦ Scope to a specific application version and deployment context, not the entire platform</li>
+ <li class="small">✦ Define remediation ownership and SLAs as part of the engagement scope, not as a follow-up discussion</li>
+ </ul>
+ </div>
+ <a class="btn btn-accent btn-sm" href="contact.html">Discuss your AppSec situation</a>
+ </div>
+
+ <div class="card">
+ <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px">
+ <div class="badge">Vendor Management</div>
+ <span class="small" style="color:var(--text-muted)">5 min read</span>
+ </div>
+ <div class="h3">How to run a security tool evaluation without getting sold to</div>
+ <p class="body" style="margin-bottom:14px">Vendor evaluations are structurally biased toward the vendor. Every demo is designed to show you the happy path. This playbook covers how to design an evaluation process that gives you the information you actually need.</p>
+ <div class="card card-soft" style="padding:14px 16px;margin-bottom:16px">
+ <div class="label" style="margin-bottom:8px">Key decision points</div>
+ <ul style="display:flex;flex-direction:column;gap:6px;list-style:none">
+ <li class="small">✦ Write your requirements before you see the first demo requirements written after demos reflect what you saw, not what you need</li>
+ <li class="small">✦ Always identify a walk-away alternative before entering any negotiation</li>
+ <li class="small">✦ Test the thing you'll actually use in production, not the showcase environment</li>
+ <li class="small">✦ Evaluate total cost of ownership: seat cost is the smallest component for most enterprise security tools</li>
+ </ul>
+ </div>
+ <a class="btn btn-accent btn-sm" href="contact.html">Discuss vendor evaluation</a>
+ </div>
+
+ <div class="card">
+ <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px">
+ <div class="badge">GRC</div>
+ <span class="small" style="color:var(--text-muted)">6 min read</span>
+ </div>
+ <div class="h3">The 90-day path to SOC 2 Type I readiness</div>
+ <p class="body" style="margin-bottom:14px">Most organizations approaching their first SOC 2 audit underestimate the evidence collection burden and overestimate how much their existing policies cover. This is the sequencing that actually works.</p>
+ <div class="card card-soft" style="padding:14px 16px;margin-bottom:16px">
+ <div class="label" style="margin-bottom:8px">Key decision points</div>
+ <ul style="display:flex;flex-direction:column;gap:6px;list-style:none">
+ <li class="small">✦ Days 1 to 30: Control mapping and gap analysis know exactly what you have and what you don't before you start writing anything</li>
+ <li class="small">✦ Days 31 to 60: Policy development and evidence collection write policies to cover controls you actually have implemented, not aspirational ones</li>
+ <li class="small">✦ Days 61 to 90: Auditor readiness organize evidence by Trust Service Criteria, not by internal system</li>
+ <li class="small">✦ Don't underestimate the access review burden it's usually the most time-consuming evidence category</li>
+ </ul>
+ </div>
+ <a class="btn btn-accent btn-sm" href="contact.html">Discuss audit readiness</a>
+ </div>
+
+ <div class="card">
+ <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px">
+ <div class="badge">Incident Readiness</div>
+ <span class="small" style="color:var(--text-muted)">5 min read</span>
+ </div>
+ <div class="h3">How to run a tabletop that finds real gaps instead of confirming your plan works</div>
+ <p class="body" style="margin-bottom:14px">Most tabletop exercises are too easy designed to validate the plan rather than stress-test it. The useful tabletops are uncomfortable. Here's how to design one that actually surfaces what you don't know.</p>
+ <div class="card card-soft" style="padding:14px 16px;margin-bottom:16px">
+ <div class="label" style="margin-bottom:8px">Key decision points</div>
+ <ul style="display:flex;flex-direction:column;gap:6px;list-style:none">
+ <li class="small">✦ Don't share the scenario in advance the response to "I wasn't prepared for that" is the data you need</li>
+ <li class="small">✦ Include the people who will actually make decisions during a real incident, not proxies</li>
+ <li class="small">✦ Inject injects mid-exercise curveballs that reflect how real incidents actually develop</li>
+ <li class="small">✦ The after-action report is more valuable than the exercise itself if it's written honestly</li>
+ </ul>
+ </div>
+ <a class="btn btn-accent btn-sm" href="contact.html">Discuss IR readiness</a>
+ </div>
+
+ <div class="card">
+ <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px">
+ <div class="badge">Vulnerability Management</div>
+ <span class="small" style="color:var(--text-muted)">4 min read</span>
+ </div>
+ <div class="h3">Moving from a vulnerability count to a risk reduction program</div>
+ <p class="body" style="margin-bottom:14px">A dashboard that shows 4,200 open vulnerabilities tells you almost nothing useful. This is the framework for replacing the count with a signal that actually helps you make decisions.</p>
+ <div class="card card-soft" style="padding:14px 16px;margin-bottom:16px">
+ <div class="label" style="margin-bottom:8px">Key decision points</div>
+ <ul style="display:flex;flex-direction:column;gap:6px;list-style:none">
+ <li class="small">✦ CVSS scores alone are useless for prioritization asset criticality and exploitability context are required</li>
+ <li class="small">✦ Define your SLA tiers before you see the first scan results defining them after biases the thresholds toward what's achievable, not what's appropriate</li>
+ <li class="small">✦ Track mean time to remediate by severity tier, not just total open count</li>
+ <li class="small">✦ Your engineering team will ignore findings they don't trust noise reduction is a prerequisite for ownership</li>
+ </ul>
+ </div>
+ <a class="btn btn-accent btn-sm" href="contact.html">Discuss vuln management</a>
+ </div>
+
+ <div class="card">
+ <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px">
+ <div class="badge">AI Security</div>
+ <span class="small" style="color:var(--text-muted)">5 min read</span>
+ </div>
+ <div class="h3">What security teams actually need to do about LLMs in production</div>
+ <p class="body" style="margin-bottom:14px">Most AI security guidance is either too abstract to act on or too vendor-specific to generalize. This is the pragmatic starting point for security teams who need to move quickly on AI risk without a two-year research program.</p>
+ <div class="card card-soft" style="padding:14px 16px;margin-bottom:16px">
+ <div class="label" style="margin-bottom:8px">Key decision points</div>
+ <ul style="display:flex;flex-direction:column;gap:6px;list-style:none">
+ <li class="small">✦ Start with an inventory of where LLMs touch production data you can't assess what you don't know is deployed</li>
+ <li class="small">✦ Prompt injection is the priority class right now, it's well-understood, exploitable, and most applications have no defense</li>
+ <li class="small">✦ Governance policy written before AI is deployed is ten times easier to enforce than policy written after</li>
+ <li class="small">✦ Third-party model APIs deserve the same supply chain scrutiny as any other third-party code</li>
+ </ul>
+ </div>
+ <a class="btn btn-accent btn-sm" href="contact.html">Discuss AI security</a>
+ </div>
+
+ </div>
+ </div>
+</section>
+
+<hr class="divider" />
+
+<!-- REPORTING STANDARDS -->
+<section class="section section-alt" id="reporting">
+ <div class="wrap">
+ <div class="eyebrow">Reporting standards</div>
+ <h2 class="h2">What every deliverable from GoatSec looks like.</h2>
+ <p class="lead" style="margin-bottom:40px">We hold ourselves to a consistent standard across every engagement type. Before you hire us, you should know exactly what you're going to receive, and be able to evaluate whether it meets what you need.</p>
+
+ <div class="split" style="gap:48px;align-items:start">
+ <div>
+ <div class="card card-warm" style="margin-bottom:16px">
+ <div class="label" style="margin-bottom:14px">Assessment report structure</div>
+ <div class="codeblock" style="white-space:pre-wrap;overflow-x:auto">Section 1: Executive Summary
+ One to two pages. Plain language. Designed for a reader who
+ will spend five minutes on it before a board meeting.
+ Covers: risk posture, the three most important findings,
+ and the recommended first action.
+
+Section 2: Scope and Methodology
+ What was reviewed, what was out of scope, which frameworks
+ or standards were used, and what access or inputs we had.
+
+Section 3: Findings Catalog
+ Each finding includes:
+ Severity (Critical / High / Medium / Low / Informational)
+ Business impact description (not just technical description)
+ Evidence (screenshots, logs, code, or config as applicable)
+ Recommended remediation action with specificity
+ Estimated remediation effort (Low / Medium / High)
+
+Section 4: Risk-Prioritized Remediation Roadmap
+ Sprint-formatted backlog ordered by risk and effort.
+ Includes suggested owner category and dependencies.
+
+Section 5: Success Metrics
+ How we verify remediation worked. Retest criteria
+ if a validation sprint is in scope.
+
+Section 6: Appendix
+ Evidence references, tool versions, scan configurations,
+ and any additional technical documentation.
+ </div>
+ </div>
+
+ <div class="card card-warm">
+ <div class="label" style="margin-bottom:14px">Integration handoff package structure</div>
+ <div class="codeblock" style="white-space:pre-wrap;overflow-x:auto">Document 1: Reference Architecture
+ As-built diagram of the integrated system with data
+ flows, trust boundaries, and component versions.
+
+Document 2: Configuration Baseline
+ Every configuration decision documented with the
+ reasoning behind it. Reviewable and auditable.
+
+Document 3: Operational Runbook
+ Day-one operating instructions. What to monitor,
+ what alerts mean, and what to do when they fire.
+ Escalation paths included.
+
+Document 4: Validation Evidence
+ Test results, screenshots, and log captures showing
+ the integration working end-to-end as designed.
+
+Document 5: Rollback Procedure
+ Step-by-step instructions for safely undoing the
+ integration if required, with data safety notes.
+ </div>
+ </div>
+ </div>
+
+ <div>
+ <div class="card" style="margin-bottom:16px">
+ <div class="label" style="margin-bottom:14px">Our quality commitments</div>
+ <ul style="display:flex;flex-direction:column;gap:12px;list-style:none">
+ <li>
+ <div class="h4">No placeholder findings</div>
+ <p class="small">Every finding in a GoatSec report is something we actually verified. We don't pad reports with theoretical risks that weren't assessed.</p>
+ </li>
+ <li style="padding-top:12px;border-top:1px solid var(--line)">
+ <div class="h4">Business impact, not just technical description</div>
+ <p class="small">Every finding includes a business impact statement written for the executive reader, not just a CVE reference and a CVSS score.</p>
+ </li>
+ <li style="padding-top:12px;border-top:1px solid var(--line)">
+ <div class="h4">Actionable remediation</div>
+ <p class="small">Recommendations are specific enough that a developer can act on them without a follow-up call. "Update your dependencies" is not a remediation recommendation.</p>
+ </li>
+ <li style="padding-top:12px;border-top:1px solid var(--line)">
+ <div class="h4">Review before final delivery</div>
+ <p class="small">Every report goes through a GoatSec review before it reaches you. We send a draft for your review and incorporate your feedback before the final version is issued.</p>
+ </li>
+ </ul>
+ </div>
+ <div class="card card-soft">
+ <div class="label" style="margin-bottom:10px">Want to see examples?</div>
+ <p class="small" style="margin-bottom:14px">We'll send representative samples for your engagement type under a mutual NDA. Reach out with what you're evaluating and we'll get them to you within one business day.</p>
+ <a class="btn btn-accent btn-sm" href="contact.html">Request samples</a>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<hr class="divider" />
+
+<!-- FAQ -->
+<section class="section" id="faq">
+ <div class="wrap">
+ <div class="eyebrow">FAQ</div>
+ <h2 class="h2">The questions procurement asks before they approve anything.</h2>
+ <p class="lead" style="margin-bottom:40px">We've been through enough procurement processes to know what comes up. Here are the answers to the questions that usually slow things down so you can move faster.</p>
+
+ <div class="g2" style="gap:16px">
+
+ <div class="card">
+ <div class="h4" style="margin-bottom:8px">Do you sign NDAs?</div>
+ <p class="body">Yes, and we prefer to sign them before technical scoping conversations, not just before contract execution. We have our own mutual NDA template and will review yours if your organization requires a specific form. NDA execution typically takes one business day.</p>
+ </div>
+
+ <div class="card">
+ <div class="h4" style="margin-bottom:8px">What insurance do you carry?</div>
+ <p class="body">We carry professional liability (errors and omissions) and cyber liability insurance. Certificates of insurance are available for your procurement process. If your organization requires specific coverage limits or additional insured status, ask us early so we can confirm what's available.</p>
+ </div>
+
+ <div class="card">
+ <div class="h4" style="margin-bottom:8px">What does the contracting process look like?</div>
+ <p class="body">We work on a statement of work model. Every engagement begins with a scoped SOW that defines deliverables, timeline, acceptance criteria, and payment terms. We don't do open-ended time-and-materials engagements without a clearly scoped phase structure. Scope changes require a written amendment. No verbal change orders.</p>
+ </div>
+
+ <div class="card">
+ <div class="h4" style="margin-bottom:8px">How do you handle sensitive findings and data?</div>
+ <p class="body">Findings and technical evidence are shared through encrypted channels, we don't send sensitive material over standard email. We don't retain client data after an engagement closes unless explicitly requested. Data handling expectations are written into the engagement SOW so both parties know what applies.</p>
+ </div>
+
+ <div class="card">
+ <div class="h4" style="margin-bottom:8px">What are your payment terms?</div>
+ <p class="body">Standard terms are net 30. For assessment sprints, we typically invoice 50% at engagement kickoff and 50% on final deliverable acceptance. For retainers, we invoice monthly in advance. We accept ACH, wire transfer, and major credit cards. Procurement purchase orders are supported.</p>
+ </div>
+
+ <div class="card">
+ <div class="h4" style="margin-bottom:8px">Can GoatSec work with our existing security toolchain?</div>
+ <p class="body">Yes. We're toolchain-agnostic and vendor-neutral. We work with whatever you have in place and evaluate gaps from there, we don't require you to adopt specific tools as a condition of working with us. If we recommend a tool, we'll tell you why and show you the alternatives we considered.</p>
+ </div>
+
+ <div class="card">
+ <div class="h4" style="margin-bottom:8px">Do you subcontract engagement work?</div>
+ <p class="body">For staff augmentation, we introduce practitioners from our network who are placed directly with your organization. For GoatSec-run engagements, primary delivery work is done by GoatSec practitioners. If we bring in a specialist for a specific technical area a particular cloud platform or a specialized compliance framework we'll tell you in the SOW.</p>
+ </div>
+
+ <div class="card">
+ <div class="h4" style="margin-bottom:8px">What's your response time for active engagements?</div>
+ <p class="body">For active engagements, you have a named point of contact, not a support queue. For urgent questions or blockers, same-day response. For standard questions and status updates, one business day. For retainer clients, we establish a communication rhythm during the kickoff week and adjust it to what actually works for your team.</p>
+ </div>
+
+ <div class="card">
+ <div class="h4" style="margin-bottom:8px">How far in advance do I need to book an engagement?</div>
+ <p class="body">For assessment sprints, typically two to three weeks lead time for a standard start date. For integration sprints and retainers, two to four weeks depending on what's in the pipeline. If you have an urgent need a breach, an imminent audit, a time-sensitive vendor decision reach out directly and we'll tell you honestly what's possible.</p>
+ </div>
+
+ <div class="card">
+ <div class="h4" style="margin-bottom:8px">Do you have experience in regulated industries?</div>
+ <p class="body">Yes. We've worked across fintech, healthcare, SaaS, and government-adjacent organizations environments with HIPAA, PCI DSS, SOC 2, FedRAMP, and NIST CSF compliance requirements. If your industry has specific regulatory obligations that affect how security work gets scoped or documented, tell us up front and we'll factor them in from the start.</p>
+ </div>
+
+ <div class="card">
+ <div class="h4" style="margin-bottom:8px">What happens if a deliverable doesn't meet expectations?</div>
+ <p class="body">Every engagement SOW defines acceptance criteria for deliverables. If a deliverable doesn't meet the criteria we both agreed to, we revise it at no additional cost. We send a draft before final delivery specifically to catch misalignments before they become issues. We'd rather spend two extra days on a revision than hand off something that misses the mark.</p>
+ </div>
+
+ <div class="card">
+ <div class="h4" style="margin-bottom:8px">Can I see references or speak with past clients?</div>
+ <p class="body">Yes, with prior client permission. We can connect you with past clients in similar industries or engagement types who've agreed to serve as references. Reach out during your evaluation process and we'll facilitate introductions to the relevant connections in our network.</p>
+ </div>
+
+ </div>
+
+ <div style="text-align:center;margin-top:40px;padding:32px;background:var(--surface-mid);border-radius:var(--r-xl);border:1px solid var(--line)">
+ <p class="lead" style="margin:0 auto 20px;text-align:center">Still have a question that isn't here?</p>
+ <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+ <a class="btn btn-accent" href="mailto:goat@goatinfosec.com">Email us directly</a>
+ <a class="btn" href="contact.html">Book a scope call</a>
+ </div>
+ </div>
+ </div>
+</section>
+
+<div id="footer-slot"></div>
+<script src="nav.js"></script>
+</body>
+</html>

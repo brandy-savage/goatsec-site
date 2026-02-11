@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+ <title>Integrations | GoatSec</title>
+ <meta name="description" content="Integration playbooks, handoff artifacts, and how GoatSec makes security tools work together in your actual pipeline." />
+ <link rel="stylesheet" href="shared.css" />
+ <link rel="icon" sizes="32x32" href="favicon-32.png" />
+ <link rel="icon" sizes="192x192" href="favicon-192.png" />
+ <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+<body>
+<div id="nav-slot"></div>
+
+<div class="wrap">
+ <div class="hero-wrap">
+ <div class="hero-inner">
+ <div class="hero-content">
+ <div class="eyebrow">Integrations</div>
+ <h1 class="h1">Make your security tools actually work together.</h1>
+ <p class="lead">Security programs succeed or fail at the integration layer. We implement, document, and hand off working pipelines, so your tools do what they were purchased to do, and your team can operate them without us.</p>
+ <div class="hero-actions">
+ <a class="btn btn-accent" href="contact.html">Scope an integration</a>
+ <a class="btn" href="vendor.html">Vendor enablement overview</a>
+ </div>
+ </div>
+ <div class="hero-photo">
+ <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80&fit=crop" alt="Technical integration and pipeline work" />
+ </div>
+ </div>
+ </div>
+</div>
+
+<!-- COMMON INTEGRATIONS -->
+<section class="section">
+ <div class="wrap">
+ <div class="eyebrow">What we integrate</div>
+ <h2 class="h2">The pipelines that actually matter for security operations.</h2>
+ <p class="lead" style="margin-bottom:40px">We've run integration work across the full security toolchain. Here's where we typically see the most impact, and the most half-finished deployments waiting to be completed.</p>
+ <div class="g2" style="gap:24px">
+ <div>
+ <div class="card card-warm" style="margin-bottom:16px">
+ <div class="label" style="margin-bottom:14px">Identity and access management</div>
+ <ul style="display:flex;flex-direction:column;gap:8px;list-style:none">
+ <li class="body">✦ SSO and SAML federation across applications</li>
+ <li class="body">✦ SCIM provisioning and deprovisioning to SaaS tools</li>
+ <li class="body">✦ MFA enforcement and conditional access policy rollout</li>
+ <li class="body">✦ Privileged access workflow integration with ticketing</li>
+ </ul>
+ </div>
+ <div class="card card-warm" style="margin-bottom:16px">
+ <div class="label" style="margin-bottom:14px">Alerting and response pipeline</div>
+ <ul style="display:flex;flex-direction:column;gap:8px;list-style:none">
+ <li class="body">✦ Alert routing from detection tooling into Jira, ServiceNow, or your ticketing system</li>
+ <li class="body">✦ SOAR playbook development and workflow automation</li>
+ <li class="body">✦ Escalation path configuration with proper severity tiers</li>
+ <li class="body">✦ Slack and Teams notification integration with sane alerting rules</li>
+ </ul>
+ </div>
+ <div class="card card-warm">
+ <div class="label" style="margin-bottom:14px">Log management and SIEM</div>
+ <ul style="display:flex;flex-direction:column;gap:8px;list-style:none">
+ <li class="body">✦ Cloud provider log ingestion: AWS CloudTrail, GCP Audit Logs, Azure Monitor</li>
+ <li class="body">✦ Endpoint telemetry forwarding and normalization</li>
+ <li class="body">✦ Log retention policy implementation</li>
+ <li class="body">✦ Detection rule migration and correlation development</li>
+ </ul>
+ </div>
+ </div>
+ <div>
+ <div class="card card-warm" style="margin-bottom:16px">
+ <div class="label" style="margin-bottom:14px">CI/CD and developer security</div>
+ <ul style="display:flex;flex-direction:column;gap:8px;list-style:none">
+ <li class="body">✦ SAST and SCA gate implementation in GitHub Actions, GitLab CI, Jenkins, or Buildkite</li>
+ <li class="body">✦ Secret scanning and pre-commit hook deployment</li>
+ <li class="body">✦ Container image scanning in the build pipeline</li>
+ <li class="body">✦ Policy-as-code enforcement in infrastructure pipelines</li>
+ </ul>
+ </div>
+ <div class="card card-warm" style="margin-bottom:16px">
+ <div class="label" style="margin-bottom:14px">Vulnerability management pipeline</div>
+ <ul style="display:flex;flex-direction:column;gap:8px;list-style:none">
+ <li class="body">✦ Scanner-to-ticketing workflow: findings to Jira or ServiceNow with auto-assignment</li>
+ <li class="body">✦ SLA tracking and escalation automation</li>
+ <li class="body">✦ Asset inventory synchronization with vulnerability data</li>
+ <li class="body">✦ Executive dashboard build with remediation velocity metrics</li>
+ </ul>
+ </div>
+ <div class="card card-soft">
+ <div class="label" style="margin-bottom:10px">Not on the list</div>
+ <p class="small">The integrations above are common, not exhaustive. If your toolchain has a specific combination that needs to work together, bring us the problem, we'll scope the solution.</p>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<hr class="divider" />
+
+<!-- PROCESS -->
+<section class="section section-alt">
+ <div class="wrap">
+ <div class="split" style="gap:56px;align-items:start">
+ <div>
+ <div class="eyebrow">Our process</div>
+ <h2 class="h2">Every integration follows the same rigor.</h2>
+ <div class="steps" style="margin-top:28px">
+ <div class="step">
+ <div class="step-num">1</div>
+ <div>
+ <div class="h4">Discovery and architecture review</div>
+ <p class="small">We map the existing environment, identify the target state, document constraints, and produce an integration design before any configuration work begins. You review and approve before we build.</p>
+ </div>
+ </div>
+ <div class="step">
+ <div class="step-num">2</div>
+ <div>
+ <div class="h4">Build and configure</div>
+ <p class="small">We do the implementation work: connector builds, API configurations, policy definitions, and workflow setup. Everything gets version-controlled or documented so it's reproducible and auditable.</p>
+ </div>
+ </div>
+ <div class="step">
+ <div class="step-num">3</div>
+ <div>
+ <div class="h4">End-to-end testing and validation</div>
+ <p class="small">We test the full pipeline, not just individual components. Alert routing, SLA timers, escalation triggers, and edge cases all get validated before go-live.</p>
+ </div>
+ </div>
+ <div class="step">
+ <div class="step-num">4</div>
+ <div>
+ <div class="h4">Team enablement and handoff</div>
+ <p class="small">We run an enablement session with your team, document everything in the runbook, and do a 30-day post-launch check to catch anything that surfaces in production.</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div>
+ <div class="split-photo" style="margin-bottom:20px">
+ <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=700&q=80&fit=crop" alt="Team training and enablement session" />
+ </div>
+ <div class="card card-warm">
+ <div class="label" style="margin-bottom:14px">Handoff artifacts you receive</div>
+ <ul style="display:flex;flex-direction:column;gap:10px;list-style:none">
+ <li class="body">✦ Reference architecture diagram as-built</li>
+ <li class="body">✦ Configuration baseline document</li>
+ <li class="body">✦ Operational runbook with escalation paths</li>
+ <li class="body">✦ Rollback procedure and known limitations</li>
+ <li class="body">✦ Operational dashboard specification</li>
+ <li class="body">✦ Enablement session recording if requested</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- EXEC / TECH TOGGLE PATTERN -->
+<section class="section">
+ <div class="wrap">
+ <div class="eyebrow">Dual-view pattern</div>
+ <h2 class="h2">How we present integration work to different audiences.</h2>
+ <p class="lead" style="margin-bottom:32px">Every integration engagement produces output in two formats. Your security team gets technical depth. Your board and executives get plain-language outcomes. Neither version requires translation between them.</p>
+ <div class="g2">
+ <div class="card card-warm">
+ <div class="badge" style="margin-bottom:16px">Executive view</div>
+ <div class="h3" style="margin-bottom:12px">What changed, and why it matters</div>
+ <p class="body" style="margin-bottom:16px">A one-to-two page summary covering: what the integration does in plain language, what security risk it addresses, how we measure success, and what the ongoing operational commitment looks like for your team.</p>
+ <div class="codeblock">
+Business outcome: alerts from cloud infrastructure now route automatically
+to the security team with priority classification, reducing manual triage
+time and ensuring high-severity issues reach the right person in under 15
+minutes, compared to hours or days previously.
+ </div>
+ </div>
+ <div class="card">
+ <div class="badge" style="margin-bottom:16px">Technical depth</div>
+ <div class="h3" style="margin-bottom:12px">Inputs, systems, constraints, rollback</div>
+ <p class="body" style="margin-bottom:16px">The full technical handoff package: systems touched, data flows documented, configuration baselines, test results and validation evidence, known limitations, and the rollback procedure if something needs to be unwound.</p>
+ <div class="codeblock">
+Data flow: CloudTrail logs (S3) → Kinesis Firehose → SIEM ingest API
+IAM role: least-privilege read-only with explicit deny on write paths
+Tested: ingestion latency under 2min p99, alert dedup working correctly
+Rollback: disable Firehose stream, revert IAM policy, no data loss
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<section class="section section-alt">
+ <div class="wrap">
+ <div class="cta-band">
+ <div class="eyebrow" style="justify-content:center;margin-bottom:16px">Get it done</div>
+ <h2 class="h2">Tell us what needs to work together. We'll build it.</h2>
+ <p class="lead">We scope integrations before any work begins. 15 minutes is enough to understand your environment and propose an approach.</p>
+ <a class="btn btn-accent" href="contact.html">Book a scope call</a>
+ </div>
+ </div>
+</section>
+
+<div id="footer-slot"></div>
+<script src="nav.js"></script>
+</body>
+</html>

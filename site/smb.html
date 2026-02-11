@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+ <title>Small Business Security | GoatSec</title>
+ <meta name="description" content="Affordable, no-jargon security packages built for law firms, dental clinics, medical practices, accountants, and growing SaaS startups. Real protection without the enterprise price tag." />
+ <link rel="stylesheet" href="shared.css" />
+ <style>
+ .industry-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;margin-top:32px}
+ @media(max-width:700px){.industry-grid{grid-template-columns:1fr}}
+ .industry-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-sm);transition:box-shadow .2s,transform .2s}
+ .industry-card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+ .industry-img{width:100%;height:180px;object-fit:cover}
+ .industry-body{padding:24px}
+ .industry-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:8px;display:block}
+ .industry-title{font-size:20px;font-weight:700;margin-bottom:8px}
+ .industry-desc{font-size:14px;line-height:1.65;color:var(--text-2);margin-bottom:16px}
+ .industry-includes{list-style:none;display:flex;flex-direction:column;gap:6px;padding:0;margin-bottom:20px}
+ .industry-includes li{font-size:13px;line-height:1.5;color:var(--text-2);padding-left:18px;position:relative}
+ .industry-includes li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:700}
+ .industry-price{font-size:13px;color:var(--text-muted);margin-bottom:16px;padding:10px 14px;background:var(--surface-mid);border-radius:var(--r-md);display:inline-block}
+ .faq-item{border-bottom:1px solid var(--line);padding:20px 0}
+ .faq-q{font-size:16px;font-weight:600;margin-bottom:8px}
+ .faq-a{font-size:14px;line-height:1.65;color:var(--text-2)}
+ </style>
+ <link rel="icon" sizes="32x32" href="favicon-32.png" />
+ <link rel="icon" sizes="192x192" href="favicon-192.png" />
+ <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+<body>
+<div id="nav-slot"></div>
+
+<div class="wrap">
+ <div class="hero-wrap">
+ <div class="hero-content" style="padding:48px 48px 44px">
+ <div class="eyebrow">Small Business Security</div>
+ <h1 class="h1">Real security for real businesses. <span>No jargon required.</span></h1>
+ <p class="lead">You didn't start your business to become a cybersecurity expert, and you shouldn't have to. We handle the security so you can focus on your clients, your patients, and your work. Affordable packages designed for how small businesses actually operate.</p>
+ </div>
+ </div>
+</div>
+
+<section class="section">
+ <div class="wrap">
+ <div class="eyebrow">The reality</div>
+ <h2 class="h2">Small businesses deserve good security too.</h2>
+ <p class="lead" style="margin-bottom:20px">Most cybersecurity companies ignore small businesses or try to sell them enterprise solutions that don't fit. We think that's wrong. Every business handles sensitive data, client files, patient records, financial information, and every business deserves protection that actually works for their size and budget.</p>
+ <p class="body" style="margin-bottom:12px">Our small business packages are designed around three principles:</p>
+ <div class="g3" style="margin-top:24px">
+ <div class="card card-warm">
+ <div class="h3">Affordable and honest</div>
+ <p class="body">Flat-fee packages with no surprises. We tell you exactly what's included, what it costs, and what you'll get. No "it depends" pricing games.</p>
+ </div>
+ <div class="card card-warm">
+ <div class="h3">Built for your reality</div>
+ <p class="body">You have 5 employees, not 5,000. Our recommendations fit your actual budget, team, and technology. We'll never tell you to buy a $200K tool when a $20/month one does the job.</p>
+ </div>
+ <div class="card card-warm">
+ <div class="h3">You'll actually understand it</div>
+ <p class="body">Plain language reports. No acronym salads. We explain what we did, what we found, and what to do about it in terms that make sense to you, not just to IT people.</p>
+ </div>
+ </div>
+ </div>
+</section>
+
+<hr class="divider" />
+
+<section class="section">
+ <div class="wrap">
+ <div class="eyebrow">Industry packages</div>
+ <h2 class="h2">Security built for your specific industry.</h2>
+ <p class="lead" style="margin-bottom:12px">Every industry has different rules, different risks, and different technology. We've built packages that address exactly what your type of business needs, nothing more, nothing less.</p>
+
+ <div class="industry-grid">
+
+ <div class="industry-card">
+ <img class="industry-img" src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=75&fit=crop" alt="Law firm office" />
+ <div class="industry-body">
+ <span class="industry-tag">Law Firms</span>
+ <div class="industry-title">Small Law Firm Security Bundle</div>
+ <p class="industry-desc">Protect client confidentiality, satisfy bar association requirements, and harden your M365 or Google Workspace, without hiring an IT department.</p>
+ <ul class="industry-includes">
+ <li>M365/Google Workspace hardening and MFA setup</li>
+ <li>Email security (anti-phishing, SPF/DKIM/DMARC)</li>
+ <li>Client data protection policies</li>
+ <li>Wire transfer fraud prevention procedures</li>
+ <li>Cyber insurance documentation support</li>
+ <li>Staff security awareness training</li>
+ </ul>
+ <div class="industry-price">Typical engagement: 2-3 weeks, flat fee</div>
+ <br/><br/>
+ <a class="btn btn-accent btn-sm" href="contact.html?svc=smb-law">Let's talk about your firm →</a>
+ </div>
+ </div>
+
+ <div class="industry-card">
+ <img class="industry-img" src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=75&fit=crop" alt="Dental clinic" />
+ <div class="industry-body">
+ <span class="industry-tag">Dental & Medical Clinics</span>
+ <div class="industry-title">HIPAA Security Bundle for Small Practices</div>
+ <p class="industry-desc">Get HIPAA compliant for real, not just on paper. We do the risk analysis OCR actually requires, harden your practice management system, and set up the protections that matter most.</p>
+ <ul class="industry-includes">
+ <li>HIPAA risk analysis (the one OCR audits for)</li>
+ <li>Practice management system security review</li>
+ <li>Patient data encryption and backup verification</li>
+ <li>Business associate agreement (BAA) review</li>
+ <li>HIPAA policies and procedures package</li>
+ <li>Staff HIPAA training</li>
+ </ul>
+ <div class="industry-price">Typical engagement: 2-4 weeks, flat fee</div>
+ <br/><br/>
+ <a class="btn btn-accent btn-sm" href="contact.html?svc=smb-dental">Let's talk about your practice →</a>
+ </div>
+ </div>
+
+ <div class="industry-card">
+ <img class="industry-img" src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=75&fit=crop" alt="Startup team" />
+ <div class="industry-body">
+ <span class="industry-tag">SaaS Startups</span>
+ <div class="industry-title">Seed-to-Series-A Security Bundle</div>
+ <p class="industry-desc">Get the security foundation enterprise buyers ask about. SOC 2 readiness, basic pentest, secure development practices, before it becomes a blocker for your next deal.</p>
+ <ul class="industry-includes">
+ <li>SOC 2 readiness gap assessment and roadmap</li>
+ <li>Web application security assessment</li>
+ <li>Cloud security posture review (AWS/GCP/Azure)</li>
+ <li>Security policies starter pack</li>
+ <li>Secure SDLC basics for your dev team</li>
+ <li>Trust center content and security questionnaire support</li>
+ </ul>
+ <div class="industry-price">Typical engagement: 3-6 weeks, flat fee</div>
+ <br/><br/>
+ <a class="btn btn-accent btn-sm" href="contact.html?svc=smb-saas">Let's talk about your product →</a>
+ </div>
+ </div>
+
+ <div class="industry-card">
+ <img class="industry-img" src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=75&fit=crop" alt="Accounting office" />
+ <div class="industry-body">
+ <span class="industry-tag">Accountants & Financial Services</span>
+ <div class="industry-title">Accounting Firm Security Package</div>
+ <p class="industry-desc">Your clients trust you with their most sensitive financial data. We help you protect it with controls that satisfy IRS requirements, cyber insurance, and client expectations.</p>
+ <ul class="industry-includes">
+ <li>Written Information Security Plan (WISP). IRS required</li>
+ <li>Tax software and cloud accounting security review</li>
+ <li>Email protection and anti-phishing setup</li>
+ <li>Client data handling procedures</li>
+ <li>MFA and access control configuration</li>
+ <li>Annual security review and update</li>
+ </ul>
+ <div class="industry-price">Typical engagement: 2-3 weeks, flat fee</div>
+ <br/><br/>
+ <a class="btn btn-accent btn-sm" href="contact.html?svc=smb-accounting">Let's talk about your practice →</a>
+ </div>
+ </div>
+
+ <div class="industry-card">
+ <img class="industry-img" src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=600&q=75&fit=crop" alt="Real estate office" />
+ <div class="industry-body">
+ <span class="industry-tag">Real Estate & Title Companies</span>
+ <div class="industry-title">Real Estate Wire Fraud Prevention</div>
+ <p class="industry-desc">Wire fraud targeting real estate closings is one of the most common and devastating cyberattacks. We set up the protections that keep your transactions and your clients' money safe.</p>
+ <ul class="industry-includes">
+ <li>Email security and BEC prevention</li>
+ <li>Wire transfer verification procedures</li>
+ <li>M365/Google Workspace hardening</li>
+ <li>Client communication security guidelines</li>
+ <li>Staff training on wire fraud red flags</li>
+ <li>Cyber insurance documentation</li>
+ </ul>
+ <div class="industry-price">Typical engagement: 1-2 weeks, flat fee</div>
+ <br/><br/>
+ <a class="btn btn-accent btn-sm" href="contact.html?svc=smb-realestate">Let's talk about your business →</a>
+ </div>
+ </div>
+
+ <div class="industry-card">
+ <img class="industry-img" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=75&fit=crop" alt="Gym" />
+ <div class="industry-body">
+ <span class="industry-tag">Gyms, Studios & Membership Businesses</span>
+ <div class="industry-title">Membership Business Security Basics</div>
+ <p class="industry-desc">You collect payment info, personal health data, and contact details from every member. We make sure that data is protected and your business won't be the next breach headline.</p>
+ <ul class="industry-includes">
+ <li>Payment system security review (PCI basics)</li>
+ <li>Member data protection assessment</li>
+ <li>Membership software security review</li>
+ <li>Wi-Fi network security for your facility</li>
+ <li>Staff access control and permissions cleanup</li>
+ <li>Simple incident response plan</li>
+ </ul>
+ <div class="industry-price">Typical engagement: 1-2 weeks, flat fee</div>
+ <br/><br/>
+ <a class="btn btn-accent btn-sm" href="contact.html?svc=smb-gym">Let's talk about your business →</a>
+ </div>
+ </div>
+
+ </div>
+ </div>
+</section>
+
+<hr class="divider" />
+
+<section class="section section-alt">
+ <div class="wrap">
+ <div class="eyebrow">Common questions</div>
+ <h2 class="h2">Questions we hear from small businesses.</h2>
+
+ <div class="faq-item">
+ <div class="faq-q">I'm too small to be a target, right?</div>
+ <p class="faq-a">Unfortunately, no. Small businesses are targeted precisely because attackers assume they have weaker defenses. The good news: basic protections are very effective, and that's what we focus on. We're not trying to sell you a missile defense system, just solid locks on your doors.</p>
+ </div>
+ <div class="faq-item">
+ <div class="faq-q">How much does this cost?</div>
+ <p class="faq-a">Our small business packages are flat-fee, typically ranging from a few thousand dollars for basic assessments to modest five-figure engagements for full compliance programs. We'll give you an exact number before any work starts, no surprises, no hourly billing anxiety.</p>
+ </div>
+ <div class="faq-item">
+ <div class="faq-q">Do I need to understand technology to work with you?</div>
+ <p class="faq-a">Not at all. We explain everything in plain language. If you can describe how your business uses email, stores files, and handles client information, that's all we need to get started. We handle the technical details.</p>
+ </div>
+ <div class="faq-item">
+ <div class="faq-q">What if I already have an IT person or MSP?</div>
+ <p class="faq-a">Great, we work alongside them. IT support and security are related but different. Your IT person keeps things running; we make sure the security configuration is actually right. We'll coordinate with whoever supports your technology today.</p>
+ </div>
+ <div class="faq-item">
+ <div class="faq-q">Will this disrupt my business?</div>
+ <p class="faq-a">We design our work to minimize disruption. Most of what we do happens in the background. When we need your input, we schedule around your availability. Our goal is to make your business more secure without making your day harder.</p>
+ </div>
+ <div class="faq-item">
+ <div class="faq-q">Don't I just need antivirus?</div>
+ <p class="faq-a">Antivirus is one piece. But modern threats, phishing emails that trick your staff, compromised passwords, misconfigured cloud settings, require a broader approach. Think of it like your office: a deadbolt is great, but you also want window locks, a safe for valuables, and a plan for what to do if something goes wrong.</p>
+ </div>
+ </div>
+</section>
+
+<hr class="divider" />
+
+<section class="section">
+ <div class="wrap">
+ <div class="cta-band">
+ <div class="eyebrow" style="justify-content:center;margin-bottom:16px">Get started</div>
+ <h2 class="h2">Not sure where to start? That's fine.</h2>
+ <p class="lead">Book a free 15-minute call. We'll ask about your business, tell you what we'd recommend, and give you a clear price. If it's not the right fit, we'll say so.</p>
+ <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+ <a class="btn btn-accent" href="contact.html">Book a free call</a>
+ <a class="btn" href="mailto:goat@goatinfosec.com">Email us a question</a>
+ </div>
+ </div>
+ </div>
+</section>
+
+<div id="footer-slot"></div>
+<script src="nav.js"></script>
+</body>
+</html>
