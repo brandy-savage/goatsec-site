@@ -5,7 +5,7 @@ const NAV = `
 <nav class="nav">
   <div class="nav-top">
     <a class="nav-logo" href="home.html">
-      <img src="https://goatinfosec.files.wordpress.com/2024/02/goatsec-logo-type-horizontal.png?w=1024" alt="GoatSec" />
+      <img src="goatsec-logo-type-horizontal.png" alt="GoatSec" />
     </a>
     <div style="display:flex;align-items:center;gap:10px">
       <a class="nav-cta" href="contact.html">Book a Scope Call</a>
@@ -62,7 +62,7 @@ const NAV = `
   <div class="nav-drawer-overlay" id="nav-drawer-overlay"></div>
   <div class="nav-drawer-panel">
     <div class="nav-drawer-header">
-      <img src="https://goatinfosec.files.wordpress.com/2024/02/goatsec-logo-type-horizontal.png?w=1024" alt="GoatSec" style="height:22px;opacity:.85" />
+      <img src="goatsec-logo-type-horizontal.png" alt="GoatSec" style="height:22px;opacity:.85" />
       <button class="nav-drawer-close" id="nav-drawer-close">&#x2715;</button>
     </div>
     <div class="nav-drawer-links">
@@ -114,7 +114,7 @@ const FOOTER = `
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="https://goatinfosec.files.wordpress.com/2024/02/goatsec-logo-type-horizontal.png?w=1024" alt="GoatSec" />
+        <img src="goatsec-logo-type-horizontal.png" alt="GoatSec" />
         <p class="footer-tagline">White-glove security execution for security leaders who want outcomes, not overhead.</p>
         <div style="margin-top:16px;display:flex;gap:10px">
           <a href="mailto:goat@goatinfosec.com" class="btn btn-sm btn-outline">goat@goatinfosec.com</a>
@@ -167,8 +167,11 @@ document.addEventListener('DOMContentLoaded', function(){
       }
     });
     // Fix logo images too
-    document.querySelectorAll('nav img, footer img').forEach(img => {
-      // Logo is absolute URL, no fix needed
+    document.querySelectorAll('nav img, .nav-drawer img, footer img').forEach(img => {
+      const src = img.getAttribute('src');
+      if(src && !src.startsWith('http') && !src.startsWith('../')){
+        img.setAttribute('src', '../' + src);
+      }
     });
   }
 
